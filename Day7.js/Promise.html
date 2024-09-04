@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // const CounterPromise = new Promise((res, rej) => {
+    //     let count = 2;
+    //     if (count > 0) {
+    //         res("it is resolverd")
+    //     } else {
+    //         rej("it is rejected")
+    //     }
+    // })
+
+    // CounterPromise
+    //     .then(res => console.log(res))
+    //     .catch(rej => console.log(rej))
+
+    // console.log(CounterPromise)
+
+    let Otp = "12346"
+    function otpCheck(otp) {
+        let otpPromise = new Promise((res, rej) => {
+            if (otp === "1234") {
+                res("otp matched")
+    d        } else {
+                rej("otp did not matched")
+            }
+        })
+        return otpPromise
+    }
+    otpCheck(Otp).then((res) => console.log(res))
+        .catch((rej) => console.log(rej))
+
+</script>
+
+</html>

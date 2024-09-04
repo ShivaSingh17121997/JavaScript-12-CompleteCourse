@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+
+<script>
+
+    const oldPassword = "shruti@123";
+    const currPass = prompt("enter your current password")
+    const newPss = prompt("enter your new password")
+    const confirmPass = prompt("enter your password again")
+
+    if (oldPassword != currPass) {
+        console.log("your current password is wrong")
+    } else {
+        if (newPss !== confirmPass) {
+            console.log("password did not match, Enter again")
+        } else {
+            console.log("password changed successfully")
+        }
+    }
+
+
+
+</script>
+
+</html>

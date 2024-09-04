@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <center>
+
+        <input id="currPass" type="text" placeholder="Enter your current password"> <br><br>
+        <input id="newPass" type="text" placeholder="Enter your new password"><br><br>
+        <input id="ConfirmPass" type="text" placeholder="Enter your confirm password"><br><br>
+        <button onclick="handleForm()"> Submit </button>
+
+    </center>
+
+
+
+</body>
+<script>
+
+
+
+
+
+    // console.log(oldPassword, currentPass, newPassword, confirmPassword)
+
+    function handleForm() {
+        let oldPassword = "ram@123";
+        let currentPass = document.querySelector("#currPass").value;
+
+        let newPassword = document.querySelector("#newPass").value;
+
+        let confirmPassword = document.querySelector("#ConfirmPass").value
+
+        console.log(currentPass, newPassword, confirmPassword)
+        //  let currentPassword = prompt("Enter your Current password");
+        // let newPassword = prompt("Enter your new Password");
+        // let confirmPassword = prompt("Confirm you password again")
+
+        // console.log(oldPassword, currentPassword, newPassword, confirmPassword)
+
+        if (oldPassword !== currentPass) {
+            console.log("your current password is incorrect")
+        } else {
+            if (newPassword !== confirmPassword) {
+                console.log("Password did not match, ")
+            } else {
+                console.log("Your password changed successfully")
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    let oldpass = prompt("oldpass")
+    let currpass = prompt("currpass")
+    let newpass = prompt("newpass")
+    let matchnewpass = prompt("matchnewpass")
+
+    if (oldpass !== currpass) {
+        console.log("YOUR curr paass is incorret")
+    } else {
+        if (newpass !== matchnewpass) {
+            console.log("password did not match")
+        } else {
+            console.log("your password changed successsfully")
+        }
+    }
+
+</script>
+
+</html>
