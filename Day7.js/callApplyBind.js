@@ -124,21 +124,36 @@ function checkPassword(success, failed) {
     else failed();
 }
 
-let user = {
-    name: "Piyush Agrawal",
+// let user = {
+//     name: "Piyush Agrawal",
 
-    loginSuccessfull() {
-        console.log(`${this.name} logged in`)
-    },
+//     loginSuccessfull() {
+//         console.log(`${this.name} logged in`)
+//     },
 
-    loginFailed() {
-        console.log(`${this.name} failed to login`)
-    }
-}
+//     loginFailed() {
+//         console.log(`${this.name} failed to login`)
+//     }
+// }
 
-checkPassword(user.loginSuccessfull.bind(user), user.loginFailed.bind(user));
+// checkPassword(user.loginSuccessfull.bind(user), user.loginFailed.bind(user));
 
 // use bind and pass user is ans
 
 
-// 13
+// 13 partial application of login function
+function checkPassword(ok, fail) {
+    let password = "1234"
+    if (password == "1234") ok()
+    else fail()
+}
+
+let user = {
+    name: "piyush",
+    login(result) {
+        console.log(this.name + (result ? "login successfull" : "login faild"))
+    }
+}
+
+let ans = checkPassword(user.login.bind(user, true), user.login.bind(user,false))
+console.log(ans)
