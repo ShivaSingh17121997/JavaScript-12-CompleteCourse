@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .EventPropogation {
+            border: 2 px solid red;
+            padding: 10px;
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .EventPropogation>form {
+            border: 1 px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        /* .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .products div {
+            position: relative;
+            margin-top: 50%;
+            margin-left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            background-color: rgb(243, 195, 118);
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="EventPropogation">
+        div
+        <form class="EventPropogation">
+            form
+            <button>button</button>
+        </form>
+    </div>
+    <!-- 
+    <div class="products">
+        <div> <span>mobile</span> </div>
+        <div class="laptop"> <span><b>laptop</b></span> </div>
+        <div class="tv"> <span>tv</span> </div>
+        <div class="radio"> <span>radio</span> </div>
+        <div class="remote"> <span>remote</span> </div>
+        <div class="ac"> <span>ac</span> </div>
+        <div class="freez"> <span>freez</span> </div>
+        <div class="cooler"> <span>cooler</span> </div>
+    </div > -->
+
+</body>
+<script src="./EventPropogation.js"></script>
+
+</html>
+
+
+
+
+<!-- Question 1 : What is event propogation -->
+<!-- Question 2 : What is event bubbling -->
+
+<!-- Ques 3 What is the diff between event.target, this.target vs event.currentTarget -->
