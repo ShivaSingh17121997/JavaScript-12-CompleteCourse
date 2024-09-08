@@ -2,17 +2,47 @@
 
 // inheritence
 
-let person = {
-    Name: "ram",
-    age: 21,
-};
+// let person = {
+//     Name: "ram",
+//     age: 21,
+// };
 
-let employees = {
-    department: "tech",
-    get_Details: function () {
-        return `${this.name}, ${this.age}, ${this.department}   `;
-    },
-};
+// let employees = {
+//     department: "tech",
+//     get_Details: function () {
+//         return `${this.Name}, ${this.age}, ${this.department}   `;
+//     },
+// };
+
+// Object.setPrototypeOf(employees, person)
+
+// console.log(employees.get_Details())
+
+// writing the above code class in js
+class Person {
+    constructor(Name, age) {
+        this.Name = Name
+        this.age = age
+    }
+}
+
+class employees extends Person {
+    constructor(department, Name, age) {
+        super(Name, age)
+        this.department = department
+    }
+
+    get_Details = function () {
+        console.log(`${this.Name}, ${this.age}, ${this.department}`)
+    }
+}
+
+new employees("tech", "ram", 21).get_Details()
+
+
+
+
+
 
 
 // closures
@@ -115,19 +145,19 @@ let employees = {
 
 
 
-function sum(...initialargs) {
-    let args = [...initialargs];
+// function sum(...initialargs) {
+//     let args = [...initialargs];
 
-    function add(...newArgs) {
-        if (newArgs.length === 0) {
-            return args.reduce((acc, cv) => acc + cv, 0)
-        }
-        args.push(...newArgs)
-        return add;
-    }
-    return add;
-}
+//     function add(...newArgs) {
+//         if (newArgs.length === 0) {
+//             return args.reduce((acc, cv) => acc + cv, 0)
+//         }
+//         args.push(...newArgs)
+//         return add;
+//     }
+//     return add;
+// }
 
 
-let b = sum(4)(3, 3, 4)(6)(6)();
-console.log(b);
+// let b = sum(4)(3, 3, 4)(6)(6)();
+// console.log(b);

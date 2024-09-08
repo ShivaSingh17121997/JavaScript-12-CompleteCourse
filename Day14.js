@@ -184,16 +184,16 @@
 
 
 
-let numbers = [1, 2, 3, 4, 5, 6]
+// let numbers = [1, 2, 3, 4, 5, 6]
 
-let newArr = numbers.slice(1)
-console.log("slice", newArr)
+// let newArr = numbers.slice(1)
+// console.log("slice", newArr)
 
-let fruits = ["apple", "banana", "chiku", "mango"]
+// let fruits = ["apple", "banana", "chiku", "mango"]
 
-fruits.splice(2,2)
+// fruits.splice(2, 2)
 
-console.log(fruits)
+// console.log(fruits)
 
 
 
@@ -222,6 +222,61 @@ console.log(fruits)
 
 
 // splice
+
+// (map ,filter, foreach, indexof, findindex ,includes, every, some)
+
+
+// interviews === map , filter, foreach
+
+// map function in array;
+
+// let arr = [1, 2, 3, 4, 5] // iterate (loop)
+// let newArre = [2,4,6,8,10] // return new Arr
+// nrwarr = [2,4,6,8,10]
+// map(()=>{}) HOF heigher order function : when a function takes another function as an argument is called higher order function
+
+// let newArr = arr.map((item) => { return item * 2 })
+// console.log("new Arr by map", newArr)
+// console.log("originalArr", arr)
+
+
+// call back
+
+// forEach 
+// let forEachArr = [3, 5, 7, 9];
+
+// forEachArr.forEach((item) => {
+//     console.log(item * 4)
+//     return item * 4
+// })
+// console.log("originalArr", forEachArr)
+
+let forEachArr = [3, 5, 7, 9];
+
+let transformedArr = forEachArr.map((item) => {
+    return item * 4;
+});
+
+console.log("transformedArr", transformedArr);
+console.log("originalArr", forEachArr);
+
+
+
+// 
+
+// let filArr = [3, 5, 7, 9, 2, 3, 1];
+
+// let newArrr = [5, 7, 9]             //3 
+// let filteredArr = filArr.filter((item) => item == 5)
+// console.log("new arrr", filteredArr) // 5,7,9
+// console.log("orginal arr", filArr)
+
+
+
+
+
+
+
 
 
 

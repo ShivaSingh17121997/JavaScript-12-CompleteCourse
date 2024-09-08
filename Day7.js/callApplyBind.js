@@ -142,18 +142,81 @@ function checkPassword(success, failed) {
 
 
 // 13 partial application of login function
-function checkPassword(ok, fail) {
-    let password = "1234"
-    if (password == "1234") ok()
-    else fail()
-}
+// function checkPassword(ok, fail) {
+//     let password = "1234"
+//     if (password == "1234") ok()
+//     else fail()
+// }
 
-let user = {
-    name: "piyush",
-    login(result) {
-        console.log(this.name + (result ? "login successfull" : "login faild"))
-    }
-}
+// let user = {
+//     name: "piyush",
+//     login(result) {
+//         console.log(this.name + (result ? "login successfull" : "login faild"))
+//     }
+// }
 
-let ans = checkPassword(user.login.bind(user, true), user.login.bind(user,false))
-console.log(ans)
+// let ans = checkPassword(user.login.bind(user, true), user.login.bind(user,false))
+// console.log(ans)
+
+
+
+
+//Q3: Given the following code, what will be the output of obj.printInfo.call(person)?
+
+// const person = { name: 'John', age: 30 };
+// const obj = {
+//     printInfo: function () {
+//         console.log(`Name: ${this.name}, Age: ${this.age}`);
+//     }
+// };
+
+// obj.printInfo.call(person)
+
+
+
+// Q5: Given the following code, what will be the output of obj.printInfo.apply(person) ?
+//     javascript
+
+// const person = { name: 'Alice', age: 25 };
+// const obj = {
+//     printInfo: function () {
+//         console.log(`Name: ${this.name}, Age: ${this.age}`);
+//     }
+// };
+
+// obj.printInfo.apply(person)
+
+
+// Q6: How does apply() handle function arguments? Provide an example where apply() is used to pass an array of arguments.
+
+// Using bind()
+
+// Q7: What will be the output of the following code ?
+// javascript
+
+// function greet(greeting, punctuation) {
+//     console.log(`${greeting}, ${this.name}${punctuation}`);
+// }
+
+// const person = { name: 'Sara' };
+
+
+// const greetSara = greet.bind(person, 'Hello');
+// greetSara('!');
+
+
+// function calculate(a, b, c) {
+//     console.log(this.value + a + b + c);
+// }
+
+// const context = { value: 10 };
+
+// calculate.call(context, 1, 2, 3)
+// calculate.apply(context, [2, 3, 4])
+//  const ans = calculate.bind(context, 3, 4, 22)
+//  console.log(ans())
+
+
+
+
+// Q8: How can you use bind() to partially apply arguments to a function? Provide an example.

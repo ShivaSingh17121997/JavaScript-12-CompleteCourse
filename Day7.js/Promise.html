@@ -31,7 +31,8 @@
         let otpPromise = new Promise((res, rej) => {
             if (otp === "1234") {
                 res("otp matched")
-    d        } else {
+                d
+            } else {
                 rej("otp did not matched")
             }
         })
@@ -39,6 +40,9 @@
     }
     otpCheck(Otp).then((res) => console.log(res))
         .catch((rej) => console.log(rej))
+
+
+
 
 </script>
 
