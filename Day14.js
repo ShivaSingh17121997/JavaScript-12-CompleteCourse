@@ -169,17 +169,17 @@
 
 // Array With Functions Push ,Pop, shift, upshifts, Splice string function
 
-// array  
+// array
 //array literals  [];
 
 // null o false null "" []
-// let arr = ["apple", "banana", "chiku", "mango", "dragon fruit", ""]; // array has been created propertis 
+// let arr = ["apple", "banana", "chiku", "mango", "dragon fruit", ""]; // array has been created propertis
 //            0         1         2        3         4          5
-// length: 
+// length:
 // console.log("length of the array is ", arr.length)
-// index 
+// index
 
-// 
+//
 // console.log(arr[0])
 
 
@@ -242,7 +242,7 @@
 
 // call back
 
-// forEach 
+// forEach
 // let forEachArr = [3, 5, 7, 9];
 
 // forEachArr.forEach((item) => {
@@ -251,22 +251,22 @@
 // })
 // console.log("originalArr", forEachArr)
 
-let forEachArr = [3, 5, 7, 9];
+// let forEachArr = [3, 5, 7, 9];
 
-let transformedArr = forEachArr.map((item) => {
-    return item * 4;
-});
+// let transformedArr = forEachArr.map((item) => {
+//     return item * 4;
+// });
 
-console.log("transformedArr", transformedArr);
-console.log("originalArr", forEachArr);
+// console.log("transformedArr", transformedArr);
+// console.log("originalArr", forEachArr);
 
 
 
-// 
+//
 
 // let filArr = [3, 5, 7, 9, 2, 3, 1];
 
-// let newArrr = [5, 7, 9]             //3 
+// let newArrr = [5, 7, 9]             //3
 // let filteredArr = filArr.filter((item) => item == 5)
 // console.log("new arrr", filteredArr) // 5,7,9
 // console.log("orginal arr", filArr)
@@ -274,6 +274,38 @@ console.log("originalArr", forEachArr);
 
 
 
+
+// map function  HOF
+
+// let arr = [1, 2, 3, 4, 5];
+
+
+// let newArr = arr.map((item, i, arr) => { return item * 3 })
+
+// console.log(newArr)  // newArr
+
+
+// filter
+// let arr = [1, 2, 3, 4, 5];
+
+
+// let filteredArr = arr.filter((item, i, arr) => { return item > 3 })
+
+// console.log(filteredArr)
+
+
+let arr = [1, 2, 3, 4, 5];
+
+// arr.forEach((item) => {
+//     console.log(item)
+// })
+
+
+
+// indexof, findindex ,includes, every, some
+
+
+// let val = arr.
 
 
 
