@@ -241,22 +241,22 @@ console.log(i2.bluetooth())
 //    - Start with an object `car` with a property `type` and a method `drive()`. Create another object `electricCar` that inherits from `car` and modifies the `drive()` method to include information about battery level.
 
 
-function Car(type) {
-    this.type = type
-    this.drive = function () {
-        console.log(`${this.type} is a good car`)
-    }
+// function Car(type) {
+//     this.type = type
+//     this.drive = function () {
+//         console.log(`${this.type} is a good car`)
+//     }
 
-}
+// }
 
-Car.prototype.drive = function () {
+// Car.prototype.drive = function () {
 
-}
+// }
 
-const newCar = new Car("TATA");
+// const newCar = new Car("TATA");
 
-console.log(newCar.type)
-console.log(newCar.drive())
+// console.log(newCar.type)
+// console.log(newCar.drive())
 
 
 
@@ -320,16 +320,75 @@ console.log(newCar.drive())
 // 5. **Instanceof and Prototypes**
 //    - Explain how `instanceof` works in JavaScript. Create a constructor function `Animal` and another `Dog` that inherits from `Animal`. Verify the relationship between instances of `Dog` and `Animal` using `instanceof`.
 
+
+
+
+
+
+
+
 // 6. **Prototype Chain and Property Shadowing**
 //    - Create an object `person` with a property `age` and a method `getAge()`. Then create an object `student` that inherits from `person` and has its own `age` property. Show how to access the `getAge()` method from `student` and explain property shadowing.
+
+// let person = {
+//     age: 21,
+//     name: "babalu"
+
+// }
+
+// let student = {
+//     age: 23,
+//     getAge: function () {
+//         console.log(`this is the age ${this.age}, ${this.name}`)
+//     }
+// }
+
+// student.getAge.call(person)
+
+// Object.setPrototypeOf(student, person)
+// student.getAge()
+
+
 
 // ### Advanced Questions
 
 // 7. **Implement a Class Hierarchy with Prototypal Inheritance**
 //    - Implement a basic class hierarchy using constructor functions: `Vehicle` (with properties `brand` and method `start()`), and `Car` (which inherits from `Vehicle`, adds a property `model`, and overrides `start()`).
 
+class Vehicle {
+    constructor(brand) {
+        this.brand = brand;
+        this.start = function () {
+            console.log(`this is the car ${this.brand}`);
+        }
+
+    }
+}
+
+
+class Car extends Vehicle {
+    constructor(brand, model) {
+        super(brand)
+        this.model = model;
+        this.start = function () {
+            console.log(`this is the car of future ${this.brand} & ${this.model}`)
+        }
+    }
+}
+
+let newCAr = new Car("tata", "curve")
+
+newCAr.start();
+
+
+
 // 8. **Prototype Inheritance and `Object.create()`**
 //    - Use `Object.create()` to create a new object that inherits from a prototype object with properties `name` and `age`. Add a method `greet()` to the prototype object and use it in the new object.
+
+
+
+
+
 
 // 9. **Inheritance with Constructor Functions and `Object.setPrototypeOf()`**
 //    - Create a constructor function `Person` with properties `name` and `age`. Create another constructor function `Employee` that inherits from `Person`. Use `Object.setPrototypeOf()` to set up the inheritance chain and add a method `getJobTitle()` to `Employee`.

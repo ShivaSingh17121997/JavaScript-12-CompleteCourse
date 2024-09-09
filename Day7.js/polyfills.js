@@ -189,137 +189,137 @@
 
 // let array = [1, 2, 3, [4, 5, [3, 4], 6, [7, 8, 9], 8], 3, 4, 5];
 
-Array.prototype.myflatFun = function () {
-    let newArr = [];
-    let arr = this;
+// Array.prototype.myflatFun = function () {
+//     let newArr = [];
+//     let arr = this;
 
-    function flat(arr) {
-        for (let i = 0; i < arr.length; i++) {
-            if (Array.isArray(arr[i])) {
-                // console.log(arr[i])
-                flat(arr[i]);
-            }
-            else newArr.push(arr[i])
-        }
-    }
-    flat(arr);
-    return newArr;
-}
+//     function flat(arr) {
+//         for (let i = 0; i < arr.length; i++) {
+//             if (Array.isArray(arr[i])) {
+//                 // console.log(arr[i])
+//                  flat(arr[i]);
+//             }
+//             else newArr.push(arr[i])
+//         }
+//     }
+//     flat(arr);
+//     return newArr;
+// }
 
-console.log(array.myflatFun());
+// console.log(array.myflatFun());
 
 
 
 // polyfil of call , apply
 
-Function.prototype.mybindFun = function (context = {}, args = []) {
-    if (typeof this !== 'function') throw Error("This is not a callable function ")
-    if (!Array.isArray(args)) throw Error("argument should be array")
+// Function.prototype.mybindFun = function (context = {}, args = []) {
+//     if (typeof this !== 'function') throw Error("This is not a callable function ")
+//     if (!Array.isArray(args)) throw Error("argument should be array")
 
-    context.fn = this
-    context.fn(...args)
-}
+//     context.fn = this
+//     context.fn(...args)
+// }
 
-let obj = {
-    name: "ram",
-    age: "12"
-}
+// let obj = {
+//     name: "ram",
+//     age: "12"
+// }
 
-function hello() {
-    console.log(`hello ${this.name} my age is ${this.age}`)
-}
+// function hello() {
+//     console.log(`hello ${this.name} my age is ${this.age}`)
+// }
 
 
 
 
 //    polyfill for bind function
 
-Function.prototype.myBindFun = function (contex = {}, ...args) {
-    if (typeof this !== "function") {
-        throw Error("this is not a function ")
-    }
+// Function.prototype.myBindFun = function (contex = {}, ...args) {
+//     if (typeof this !== "function") {
+//         throw Error("this is not a function ")
+//     }
 
-    contex.fn = this;
-    return function () {
-        return contex.fn(...args)
-    }
+//     contex.fn = this;
+//     return function (...args) {
+//         return contex.fn(...args)
+//     }
 
-}
+// }
 
-let newufn = hello.myBindFun(obj, 12)
-console.log(newufn())
+// let newufn = hello.myBindFun(obj, 12)
+// console.log(newufn())
 
 
 
 // polyfill of map
 
 
-Array.prototype.myMapFun = function (callback) {
-    if (typeof callback !== "function") throw Error("undefined is not a functon!");
+// Array.prototype.myMapFun = function (callback) {
+//     if (typeof callback !== "function") throw Error("undefined is not a functon!");
 
-    let newArr = [];
-    let arr = this;
+//     let newArr = [];
+//     let arr = this;
 
-    for (let i = 0; i < arr.length; i++) {
-        let res = callback(arr[i], i, arr)
+//     for (let i = 0; i < arr.length; i++) {
+//         let res = callback(arr[i], i, arr)
 
-        newArr.push(res)
-    }
-    return newArr;
+//         newArr.push(res)
+//     }
+//     return newArr;
 
-}
+// }
 
 
-let arr = [1, 2, 3, 4, 5]
-let answer = arr.myMapFun((item) => { return item * 4 })
-console.log(answer)
+// let arr = [1, 2, 3, 4, 5]
+// let answer = arr.myMapFun((item) => { return item * 4 })
+// console.log(answer)
 
 
 
 // polyfill of filter
 
-Array.prototype.myFilterfun = function (callback) {
-    if (typeof callback !== "function") throw Error("undefined is not a function!");
+// Array.prototype.myFilterfun = function (callback) {
+//     if (typeof callback !== "function") throw Error("undefined is not a function!");
 
-    let newArr = [];
-    let arr = this;
+//     let newArr = [];
+//     let arr = this;
 
-    for (let i = 0; i < arr.length; i++) {
-        let res = callback(arr[i], i, arr);
-        if (res) {
-            newArr.push(arr[i])
-        }
-    }
+//     for (let i = 0; i < arr.length; i++) {
+//         let res = callback(arr[i], i, arr);
+//         if (res) {
+//             newArr.push(arr[i])
+//         }
+//     }
 
-    return newArr;
-}
+//     return newArr;
+// }
 
-let arr = [1, 2, 2, 3, 4, 5]
-let newArr = arr.myFilterfun((item) => { return item == 4 })
-console.log(newArr)
+// let arr = [1, 2, 2, 3, 4, 5]
+// let newArr = arr.myFilterfun((item) => { return item == 4 })
+// console.log(newArr)
 
 
 // polill for reduce function
 
-Array.prototype.myReduceFun = function (callback, initalVal) {
-    if (typeof callback !== "function") throw Error("undefined is not a function!");
-    // let initalVal
+// Array.prototype.myReduceFun = function (callback, initalVal) {
+//     if (typeof callback !== "function") throw Error("undefined is not a function!");
+//     // let initalVal
 
-    let arr = this;
+//     let arr = this;
 
-    for (let i = 0; i < arr.length; i++) {
-        let ans = callback(initalVal, arr[i], i, arr)
-        initalVal = ans;
-    }
+//     for (let i = 0; i < arr.length; i++) {
+//         let ans = callback(initalVal, arr[i], i, arr)
+//         initalVal = ans;
+//     }
 
-    return initalVal;
+//     return initalVal;
 
-}
+// }
 
 
-let arr = [1, 2, 3, 4, 5]
-let ans = arr.myReduceFun((acc, cv) => { return acc + cv }, 0)
-console.log(ans)
+// let arr = [1, 2, 3, 4, 5]
+// let ans = arr.myReduceFun((acc, cv) => { return acc + cv }, 0)
+// console.log(ans)
 
 
 // flat polyfill
