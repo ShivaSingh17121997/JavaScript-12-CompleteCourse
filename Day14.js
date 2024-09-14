@@ -294,7 +294,7 @@
 // console.log(filteredArr)
 
 
-let arr = [1, 2, 3, 4, 5];
+// let arr = [1, 2, 3, 4, 5];
 
 // arr.forEach((item) => {
 //     console.log(item)
@@ -308,6 +308,227 @@ let arr = [1, 2, 3, 4, 5];
 // let val = arr.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// looping in an array
+
+// let arr = [2, 3, 4, 56, 76, 8, 108];
+// console.log(arr.length)
+
+// let max = arr[0];//2
+
+// for (let i = 0; i < arr.length; i++) {
+//     // 2   <  3
+//     if (max < arr[i]) {
+//         max = arr[i]
+//     }
+// }
+// console.log(max)
+// minimum
+
+
+// reverse the arr = [1,2,3] // [3,2,1]
+
+// let ar = [1, 2, 3];  // len 3 , index = 2
+
+// let revereseArr = [];
+
+// for (let i = ar.length - 1; i >= 0; i--) {
+//     revereseArr.push(ar[i])
+// }
+
+// console.log(revereseArr);
+
+// find the palindrom of a string   // "pop" , bob , level
+
+
+// check palidrom
+
+// let palindrom = "level"
+
+// function Palindrom(str) {
+
+//     let reverseStr = "";
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         reverseStr = reverseStr + str[i]
+//     }
+
+//     // console.log(reverseStr)
+
+//     if (str === reverseStr) {
+//         console.log(str, "is palindrom ")
+//     } else {
+//         console.log(str, "is not a palindrom")
+//     }
+
+// }
+
+// Palindrom(palindrom)
+
+
+// console.log("")
+
+
+
+
+// let arr = [1, 2, 3, 4, 5]  // arr.length = 5 - 1 ,
+
+// let reversedArr = []
+// // reverse the array
+
+// for (let i = arr.length - 1; i >= 0; i--){
+//     reversedArr.push(arr[i]);
+// }
+
+// console.log(reversedArr)
+
+
+
+// let str = "babalu";
+// let reversedStr = "";
+
+// for (let i = str.length - 1; i >= 0; i--) {
+//     reversedStr = reversedStr + str[i]
+// }
+
+// if (str === reversedStr) {
+//     console.log(str, "is palindrom")
+// } else {
+//     console.log(str, "is not a palindrom")
+// }
+
+// console.log(reversedStr)
+
+
+// objects 
+
+// function() {
+
+// }
+// everything in js is an object
+
+// obj is data structure that store data in the form of key and value pair;
+
+let student = {
+    Name: "Ram",
+    age: 34,
+    hobbies: ["archari", "reading vedas", "killing rakchhasa"],
+    city: "Ayodhya",
+    state: "UP",
+    getName: function () {
+        return "my name is " + this.Name
+    },
+    isMarried: true
+};
+
+
+// in how many ways can we create objects
+
+let obj = {}; // object literals
+let obj1 = Object.create(student) // by obj.create() 
+// 3 object creared with the help of new key word in constructor funciton 
+// constructor in class component
+
+// this key word // this is an obj
+function constructor(useName, password) {
+
+    this.userName = useName
+    this.pass = password
+
+}
+let persone1 = new constructor("ram@shyam", "kodand dhanush");
+// let persone2 = new constructor("shiv", "pinak dhanush");
+// let persone3 = new constructor("vishnu", "sarang dhanush");
+// let persone4 = new constructor("arjun", "gandiv dhanush");
+// let persone5 = new constructor("karn", "vijay dhanush");
+// let persone6 = new constructor("vishu ", "sudarshan");
+// let persone7 = new constructor("ram@shyam", "kodand dhanush");
+
+console.log(persone1)
+// console.log(persone2)
+// console.log(persone3)
+// console.log(persone4)
+// console.log(persone5)
+// console.log(persone6)
+// console.log(persone7)
+
+
+function add(userame, pass) {
+
+    return userame, pass
+
+}
+
+add("babalu", "dabalu");
+
+
+
+
+console.log(this) // this is an object  neares jo bhi object indicate karega
+console.log(typeof this, "this is this")
+
+
+// what are classes in js  // classes are templete use to create objects
+
+
+
+
+
+
+
+
+
+
+// constructor function
+
+
+
+
+
+
+console.log(typeof obj)
+console.log(typeof obj1)
+
+console.log(obj1.city)
+
+
+// // for in loop
+// for (key in student) {
+//     console.log(student[key])
+// }
+
+
+
+
+
+
+
+
+
+
+
+// student.city = "surat"
+// delete student.city //property
+// console.log(student.city)
+// console.log(student.getName())
+// console.log(student.isMarried)
+// console.log(student.age)
+
+// student.wife = "sita";
+
+// console.log(student)
 
 
 

@@ -1,61 +1,61 @@
 // prototypical inheritence
 
-let shatedFunctionalitiesOfIphone1 = {}
-shatedFunctionalitiesOfIphone1.dial = function () {
-    console.log("tring..., tring...")
-}
+// let shatedFunctionalitiesOfIphone1 = {}
+// shatedFunctionalitiesOfIphone1.dial = function () {
+//     console.log("tring..., tring...")
+// }
 
-iphone1.prototype.dial = function () {
-    console.log("tring... , tring...")
-}
-
-
-
-function iphone1(generation, color) {
-    let obj = {}
-    Object.setPrototypeOf(obj, iphone1.prototype)
-
-    obj.generation = generation;
-    obj.color = color
-
-    return obj
-}
-
-let i1 = iphone1(1, "gray")
-console.log(i1.dial())
+// iphone1.prototype.dial = function () {
+//     console.log("tring... , tring...")
+// }
 
 
 
+// function iphone1(generation, color) {
+//     let obj = {}
+//     Object.setPrototypeOf(obj, iphone1.prototype)
+
+//     obj.generation = generation;
+//     obj.color = color
+
+//     return obj
+// }
+
+// let i1 = iphone1(1, "gray")
+// console.log(i1.dial())
 
 
-let sharedPropertiesOfIhone2 = {};
-sharedPropertiesOfIhone2.blueTooth = function () {
-    console.log("Connected to bluetooth device...")
-}
-
-Object.setPrototypeOf(sharedPropertiesOfIhone2, shatedFunctionalitiesOfIphone1);
 
 
-Object.setPrototypeOf(iphone2.prototype, iphone1.prototype)
 
-iphone2.prototype.bluetooth = function () {
-    console.log("Connected to the bluetooth device...")
-}
+// let sharedPropertiesOfIhone2 = {};
+// sharedPropertiesOfIhone2.blueTooth = function () {
+//     console.log("Connected to bluetooth device...")
+// }
 
-function iphone2(generation, color) {
-    let obj = {}
-    Object.setPrototypeOf(obj, iphone2.prototype);
-
-    obj.generation = generation;
-    obj.color = color
+// Object.setPrototypeOf(sharedPropertiesOfIhone2, shatedFunctionalitiesOfIphone1);
 
 
-    return obj;
+// Object.setPrototypeOf(iphone2.prototype, iphone1.prototype)
 
-}
-let i2 = iphone2(2, "green");
-console.log(i2.dial())
-console.log(i2.bluetooth())
+// iphone2.prototype.bluetooth = function () {
+//     console.log("Connected to the bluetooth device...")
+// }
+
+// function iphone2(generation, color) {
+//     let obj = {}
+//     Object.setPrototypeOf(obj, iphone2.prototype);
+
+//     obj.generation = generation;
+//     obj.color = color
+
+
+//     return obj;
+
+// }
+// let i2 = iphone2(2, "green");
+// console.log(i2.dial())
+// console.log(i2.bluetooth())
 
 
 // let student = {
@@ -355,30 +355,30 @@ console.log(i2.bluetooth())
 // 7. **Implement a Class Hierarchy with Prototypal Inheritance**
 //    - Implement a basic class hierarchy using constructor functions: `Vehicle` (with properties `brand` and method `start()`), and `Car` (which inherits from `Vehicle`, adds a property `model`, and overrides `start()`).
 
-class Vehicle {
-    constructor(brand) {
-        this.brand = brand;
-        this.start = function () {
-            console.log(`this is the car ${this.brand}`);
-        }
+// class Vehicle {
+//     constructor(brand) {
+//         this.brand = brand;
+//         this.start = function () {
+//             console.log(`this is the car ${this.brand}`);
+//         }
 
-    }
-}
+//     }
+// }
 
 
-class Car extends Vehicle {
-    constructor(brand, model) {
-        super(brand)
-        this.model = model;
-        this.start = function () {
-            console.log(`this is the car of future ${this.brand} & ${this.model}`)
-        }
-    }
-}
+// class Car extends Vehicle {
+//     constructor(brand, model) {
+//         super(brand)
+//         this.model = model;
+//         this.start = function () {
+//             console.log(`this is the car of future ${this.brand} & ${this.model}`)
+//         }
+//     }
+// }
 
-let newCAr = new Car("tata", "curve")
+// let newCAr = new Car("tata", "curve")
 
-newCAr.start();
+// newCAr.start();
 
 
 
@@ -409,3 +409,33 @@ newCAr.start();
 
 
 //
+
+
+
+
+// console.log(age) // undefinded
+
+// var age = 65
+
+// console.log(age) // 65
+
+
+
+// let obj = {
+//     name: "ram"
+// }
+
+
+
+// let Name = {
+//     getName: function () {
+//         console.log(`my name is ${this.name} `)
+//     }
+// }
+
+// Object.setPrototypeOf(Name, obj)
+
+
+// Name.getName.call(obj)
+
+// protypical inheritence
