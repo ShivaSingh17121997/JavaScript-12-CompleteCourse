@@ -421,34 +421,34 @@
 
 // obj is data structure that store data in the form of key and value pair;
 
-let student = {
-    Name: "Ram",
-    age: 34,
-    hobbies: ["archari", "reading vedas", "killing rakchhasa"],
-    city: "Ayodhya",
-    state: "UP",
-    getName: function () {
-        return "my name is " + this.Name
-    },
-    isMarried: true
-};
+// let student = {
+//     Name_is: "Ram",
+//     age: 34,
+//     hobbies: ["archari", "reading vedas", "killing rakchhasa"],
+//     city: "Ayodhya",
+//     state: "UP",
+//     getName: function () {
+//         return "my name is " + this.Name
+//     },
+//     isMarried: true
 
+// };
 
 // in how many ways can we create objects
 
-let obj = {}; // object literals
-let obj1 = Object.create(student) // by obj.create() 
+// let obj = {}; // object literals
+// let obj1 = Object.create(student) // by obj.create() 
 // 3 object creared with the help of new key word in constructor funciton 
 // constructor in class component
 
 // this key word // this is an obj
-function constructor(useName, password) {
+// function constructor(useName, password) {
 
-    this.userName = useName
-    this.pass = password
+//     this.userName = useName
+//     this.pass = password
 
-}
-let persone1 = new constructor("ram@shyam", "kodand dhanush");
+// }
+// let persone1 = new constructor("ram@shyam", "kodand dhanush");
 // let persone2 = new constructor("shiv", "pinak dhanush");
 // let persone3 = new constructor("vishnu", "sarang dhanush");
 // let persone4 = new constructor("arjun", "gandiv dhanush");
@@ -456,7 +456,7 @@ let persone1 = new constructor("ram@shyam", "kodand dhanush");
 // let persone6 = new constructor("vishu ", "sudarshan");
 // let persone7 = new constructor("ram@shyam", "kodand dhanush");
 
-console.log(persone1)
+// console.log(persone1)
 // console.log(persone2)
 // console.log(persone3)
 // console.log(persone4)
@@ -465,27 +465,43 @@ console.log(persone1)
 // console.log(persone7)
 
 
-function add(userame, pass) {
+// function add(userame, pass) {
 
-    return userame, pass
+//     return userame, pass
 
-}
+// }
 
-add("babalu", "dabalu");
-
-
+// add("babalu", "dabalu");
 
 
-console.log(this) // this is an object  neares jo bhi object indicate karega
-console.log(typeof this, "this is this")
+
+
+// console.log(this) // this is an object  neares jo bhi object indicate karega
+// console.log(typeof this, "this is this")
 
 
 // what are classes in js  // classes are templete use to create objects
+let obj = {};
+// tmplete
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+}
 
 
+const Person1 = new Person("krishn", 5000);
 
+console.log(Person1);
 
+const Persone2 = new Person("shiv", "infinity")
+console.log(Persone2)
 
+for (key in Person1) {
+    console.log(key, "==>", Person1[key])
+};
 
 
 
@@ -498,21 +514,21 @@ console.log(typeof this, "this is this")
 
 
 
-console.log(typeof obj)
-console.log(typeof obj1)
+// // console.log(typeof obj)
+// // console.log(typeof obj1)
 
-console.log(obj1.city)
-
-
-// // for in loop
-// for (key in student) {
-//     console.log(student[key])
-// }
+// // console.log(obj1.city)
 
 
+// // // for in loop
+// // for (key in student) {
+// //     console.log(student[key])
+// // }
 
 
 
+
+//
 
 
 

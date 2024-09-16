@@ -1,0 +1,31 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.accordion {
+    max-width: 600px;
+    margin: auto;
+}
+
+.accordion-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.accordion-header {
+    background-color: #f1f1f1;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.accordion-content {
+    padding: 15px;
+    display: none;
+    /* Hidden by default */
+    background-color: #fafafa;
+}

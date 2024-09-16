@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Property Example</title>
+    <style>
+        .static {
+            position: static;
+            background-color: lightcoral;
+        }
+
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: lightblue;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background-color: lightgreen;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background-color: lightpink;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="static">Static Element</div>
+    <div class="relative">Relative Element</div>
+    <div class="absolute">Absolute Element</div>
+    <div class="fixed">Fixed Element</div>
+    <div class="sticky">Sticky Element</div>
+    <div style="height: 1500px;">Scroll down to see the sticky element</div>
+</body>
+
+</html>
