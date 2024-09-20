@@ -1,0 +1,98 @@
+<!-- //Build a Countdown Timer: Develop a countdown timer component that starts from a specified time and decrements until it
+reaches zero. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+
+<body>
+
+</body>
+</head>
+
+<body>
+    <h1 id="show">5</h1>
+    <button id="btn">Start</button>
+    <button id="stopBtn">stop</button>
+    <button id="increaseBy5sec">increase by 5 secs</button>
+    <button id="decreaseBy5sec">decrease by 5 secs</button>
+    <button id="Reset">Reset</button>
+
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let stopBtn = document.querySelector("#stopBtn");
+        let increaseBy5Sec = document.querySelector("#increaseBy5sec");
+        let decreaseBy5Sec = document.querySelector("#decreaseBy5sec");
+        let reset = document.querySelector("#Reset")
+
+        let count = 5;
+
+        let h1 = document.querySelector("#show")
+
+        let interval;
+
+        function updateDisplay() {
+            h1.innerHTML = count > 0 ? count : "Time is up "
+        }
+
+        btn.addEventListener("click", () => {
+            btn.disabled = true;
+            interval = setInterval(() => {
+                count -= 1
+                h1.innerHTML = count;
+
+                if (count <= 0) {
+                    clearInterval(interval)
+                    h1.innerHTML = "Time is up"
+                    btn.disabled = true;
+                    stopBtn.disabled = false
+                }
+            }, 1000)
+        });
+
+        stopBtn.addEventListener("click", () => {
+            clearInterval(interval)
+            btn.disabled = false
+
+        })
+
+
+        // increase by 5 sec
+
+        increaseBy5Sec.addEventListener("click", () => {
+            count += 5;
+            h1.innerHTML = count
+        });
+
+        decreaseBy5Sec.addEventListener("click", () => {
+            count = Math.max(0, count - 5);
+            h1.innerHTML = count
+        });
+
+
+        // reset function
+        reset.addEventListener("click", () => {
+            clearInterval(interval)
+            count = 5
+            updateDisplay()
+            btn.disabled = false;
+
+        })
+
+        updateDisplay()
+    </script>
+</body>
+
+</html>
