@@ -1,0 +1,13 @@
+.tab-content {
+    display: none;
+    background-color: aqua;
+}
+
+.tab-button.active{
+     background-color: antiquewhite;
+     color: white;
+}
+
+.tab-button.active{
+    display: block;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .accordion {
+            text-align: center;
+        }
+
+        .accordion-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accordion">
+
+        <h1 class="accordion-headers">Section 1</h1>
+        <div class="accordion-content">Hello this accoridion content for section 1.</div>
+
+        <h1 class="accordion-headers">Section 2</h1>
+        <div class="accordion-content">Hello this accoridion content for section 2.</div>
+
+        <h1 class="accordion-headers">Section 3</h1>
+        <div class="accordion-content">Hello this accoridion content for section 3.</div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const headers = document.querySelectorAll(".accordion-headers")
+            headers.forEach((item) => {
+                item.addEventListener('click', () => {
+                    let content = item.nextElementSibling;
+
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        document.querySelectorAll(".accordion-content").forEach((item) => {
+                            item.style.display = "none";
+                        })
+
+                        content.style.display = "block"
+                    }
+                })
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

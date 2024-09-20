@@ -247,7 +247,7 @@
 // }
 
 // let newufn = hello.myBindFun(obj, 12)
-// console.log(newufn())
+// console.log(newufn());
 
 
 
@@ -324,30 +324,62 @@
 
 // flat polyfill
 
-Array.prototype.myFlatFun = function () {
+// Array.prototype.myFlatFun = function () {
 
-    let flattenArray = [];
+//     let flattenArray = [];
+//     let arr = this;
+
+//     console.log(arr)
+
+//     function flat(arr) {
+//         for (let i = 0; i < arr.length; i++) {
+//             if (Array.isArray(arr[i])) {
+//                 flat(arr[i])
+//             }
+//             else {
+//                 flattenArray.push(arr[i]);
+//             }
+//         }
+//     }
+
+//     flat(arr);
+//     return flattenArray;
+// }
+
+
+// let arr = [1, 2, 3, [4, 5, 6], 7, 8];
+
+// let newArr = arr.myFlatFun()
+// console.log(newArr);
+
+
+
+// polyfill of map
+
+
+let arr = [1, 2, 3, 4, 5];
+
+Array.prototype.myReducerFun = function (cb, initalVal) {
+
+    if (typeof cb !== "function") throw Error("Undefined is not a function!");
+
     let arr = this;
 
-    console.log(arr)
+    for (let i = 0; i < arr.length; i++) {
+        let res = cb(initalVal, arr[i], i, arr);
 
-    function flat(arr) {
-        for (let i = 0; i < arr.length; i++) {
-            if (Array.isArray(arr[i])) {
-                flat(arr[i])
-            }
-            else {
-                flattenArray.push(arr[i]);
-            }
-        }
+        initalVal = res
+
     }
-
-    flat(arr);
-    return flattenArray;
+    return initalVal;
 }
 
 
-let arr = [1, 2, 3, [4, 5, 6], 7, 8];
+let ans = arr.myReducerFun((acc, cv) => { return acc + cv }, 0);
+console.log(ans)
 
-let newArr = arr.myFlatFun()
-console.log(newArr);
+
+
+// polyfill of reduce
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .changeColor {
+            color: black;
+            /* Original color */
+            /* transition: color 0.1s ease; */
+            /* Smooth transition for color change */
+        }
+
+        .changeColor.hovered {
+            color: red;
+            /* Color on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1 class="changeColor">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci at accusantium
+            necessitatibus fugit a error
+            consequuntur, itaque aperiam vitae quos cupiditate reprehenderit dignissimos dolorem? Quia quae adipisci
+            modi. Ipsa, enim!</h1>
+    </div>
+
+    <script>
+        const para = document.querySelector(".changeColor");
+
+        para.addEventListener("mouseover", () => {
+            // para.classList.add("hovered"); // Add the hovered class on mouseover
+            para.classList.add("hovered")
+        });
+
+        para.addEventListener("mouseout", () => {
+            // para.classList.remove("hovered"); // Remove the hovered class on mouseout
+            para.classList.remove('hovered')
+        });
+    </script>
+
+</body>
+
+</html>

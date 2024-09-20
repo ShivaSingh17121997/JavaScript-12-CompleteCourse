@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+
+        .tab-button.active {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <button class="tab-button" id="tab1-button">Tab 1</button>
+        <button class="tab-button" id="tab2-button">Tab 2</button>
+        <button class="tab-button" id="tab3-button">Tab 3</button>
+    </div>
+
+    <div class="tab-content" id="tab1">
+        <h2>Content for Tab 1</h2>
+        <p>This is the content of the first tab.</p>
+    </div>
+    <div class="tab-content" id="tab2">
+        <h2>Content for Tab 2</h2>
+        <p>This is the content of the second tab.</p>
+    </div>
+    <div class="tab-content" id="tab3">
+        <h2>Content for Tab 3</h2>
+        <p>This is the content of the third tab.</p>
+    </div>
+
+    <script>
+        // Get references to the buttons and content
+        var buttons = [
+            { id: 'tab1-button', contentId: 'tab1' },
+            { id: 'tab2-button', contentId: 'tab2' },
+            { id: 'tab3-button', contentId: 'tab3' }
+        ];
+
+        // Function to show a specific tab
+        function showTab(activeTabId) {
+            // Hide all content and remove active class from all buttons
+            buttons.forEach(function (item) {
+                var content = document.getElementById(item.contentId);
+                var button = document.getElementById(item.id);
+
+                content.style.display = 'none'; // Hide content
+                button.className = 'tab-button'; // Remove active class
+            });
+
+            // Show the selected tab content
+            var activeContent = document.getElementById(activeTabId);
+            activeContent.style.display = 'block'; // Show active content
+            document.getElementById(activeTabId + '-button').className += ' active'; // Set active class on button
+        }
+
+        // Event listeners for the buttons
+        buttons.forEach(function (tab) {
+            document.getElementById(tab.id).onclick = function () {
+                showTab(tab.contentId);
+            };
+        });
+
+        // Initialize the first tab to be displayed
+        showTab('tab1');
+
+    </script>
+</body>
+
+</html>

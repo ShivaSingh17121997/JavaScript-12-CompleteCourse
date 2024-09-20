@@ -16,28 +16,28 @@
 
 // Object.setPrototypeOf(employees, person)
 
-// console.log(employees.get_Details())
+// // console.log(employees.get_Details())
 
-// writing the above code class in js
-class Person {
-    constructor(Name, age) {
-        this.Name = Name
-        this.age = age
-    }
-}
+// // writing the above code class in js
+// class Person {
+//     constructor(Name, age) {
+//         this.Name = Name
+//         this.age = age
+//     }
+// }
 
-class employees extends Person {
-    constructor(department, Name, age) {
-        super(Name, age)
-        this.department = department
-    }
+// class employees extends Person {
+//     constructor(department, Name, age) {
+//         super(Name, age)
+//         this.department = department
+//     }
 
-    get_Details = function () {
-        console.log(`${this.Name}, ${this.age}, ${this.department}`)
-    }
-}
+//     get_Details = function () {
+//         console.log(`${this.Name}, ${this.age}, ${this.department}`)
+//     }
+// }
 
-new employees("tech", "ram", 21).get_Details()
+// new employees("tech", "ram", 21).get_Details()
 
 
 
@@ -106,24 +106,24 @@ new employees("tech", "ram", 21).get_Details()
 //////////////////////////////////////////////////////////
 
 
-// function adding(a) {
-//     const args = [a]; // Initialize an array with the first argument
+function adding(a) {
+    const args = [a]; // Initialize an array with the first argument
 
-//     function add(b) {
-//         if (b === undefined) {
-//             // If no argument is provided, return the sum of all collected arguments
-//             return args.reduce((acc, num) => acc + num, 0);
-//         }
-//         args.push(b); // Add the new argument to the array
-//         return add; // Return the function itself to allow chaining
-//     }
+    function add(b) {
+        if (b === undefined) {
+            // If no argument is provided, return the sum of all collected arguments
+            return args.reduce((acc, num) => acc + num, 0);
+        }
+        args.push(b); // Add the new argument to the array
+        return add; // Return the function itself to allow chaining
+    }
 
-//     return add; // Start the chain
-// }
+    return add; // Start the chain
+}
 
 // Example usage:
-// const result = adding(1)(2)(4)(1)(2)(4)(1)(2)(4)(1)(2)(4)(); // Add more numbers as needed
-// console.log(result); // Should print the sum of 1 + 2 + 4 = 7
+const result = adding(1)(2)(4)(1)(2)(4)(1)(2)(4)(1)(2)(4)(); // Add more numbers as needed
+console.log(result); // Should print the sum of 1 + 2 + 4 = 7
 
 // function sum(a) {
 //     const args = [a];// initilize an array with firs argument
@@ -145,19 +145,19 @@ new employees("tech", "ram", 21).get_Details()
 
 
 
-// function sum(...initialargs) {
-//     let args = [...initialargs];
+function sum(...initialargs) {
+    let args = [...initialargs];
 
-//     function add(...newArgs) {
-//         if (newArgs.length === 0) {
-//             return args.reduce((acc, cv) => acc + cv, 0)
-//         }
-//         args.push(...newArgs)
-//         return add;
-//     }
-//     return add;
-// }
+    function add(...newArgs) {
+        if (newArgs.length === 0) {
+            return args.reduce((acc, cv) => acc + cv, 0)
+        }
+        args.push(...newArgs)
+        return add;
+    }
+    return add;
+}
 
 
-// let b = sum(4)(3, 3, 4)(6)(6)();
-// console.log(b);
+let b = sum(4)(3, 3, 4)(6)(6)();
+console.log(b);

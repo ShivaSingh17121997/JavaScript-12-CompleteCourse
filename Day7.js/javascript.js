@@ -48,18 +48,18 @@
 //     return shell(n - 1) + shell(n - 2);
 // //    });
 
-// var m = ['aa', 'bb', 'a', 4, 4, 15, 16, 23, 42];
+var m = ['aa', 'bb', 'a', 4, 4, 15, 16, 23, 42];
 
 
-//  let sorted = m.sort((a, b) => {
-//     if (a === b) return 0;
+let sorted = m.sort((a, b) => {
+    if (a === b) return 0;
 
-//     if (typeof (a) === typeof (b)) return a < b ? -1 : 1
+    if (typeof (a) === typeof (b)) return a < b ? -1 : 1
 
-//     return typeof (a) < typeof (b) ? -1 :  1
-// })
+    return typeof (a) < typeof (b) ? -1 : 1
+})
 
-// console.log(sorted)
+console.log(sorted)
 
 // const people = [
 //     { name: 'blice', age: 30 },
@@ -77,23 +77,7 @@
 
 // console.log(sorted)
 
-let obj = {
-    a: 100,
-    b: 200,
-    title: "my nums"
-}
+let
+    o
 
-
-function multiplyByTwo(obj) {
-    for (key in obj) {
-        if (typeof obj[key] === "number") {
-            obj[key] = obj[key] * 2
-        } 
-        obj[key] = obj[key]
-    }
-     
-}
-
-let a = multiplyByTwo(obj);
-console.log(obj)
 

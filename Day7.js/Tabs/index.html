@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 1rem
+        }
+
+        .tab-button {
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        .tab-button.active {
+            background-color: aliceblue;
+            color: rgb(0, 0, 0);
+            border-bottom: 1px solid transparent;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tabsContainer"></div>
+
+    <script>
+        function initializeTabs(tabs) {
+
+            const container = document.querySelector("#tabsContainer");
+            const tabButtons = document.createElement('div');
+            tabButtons.className = 'tab-buttons';
+
+            const tabContents = document.createElement('div');
+
+            tabs.forEach((tab, index) => {
+                const button = document.createElement('div');
+
+                button.className = 'tab-button';
+                button.textContent = tab.title;
+                button.dataset.target = `tab-content-${index}`
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach((content) => content.classList.remove('active'))
+                    button.classList.add('active')
+
+                    document.getElementById(button.dataset.target).classList.add('active')
+                });
+                tabButtons.appendChild(button);
+
+                // create tab content;
+
+                const content = document.createElement('div');
+                content.id = `tab-content-${index}`
+                content.className = 'tab-content';
+                content.textContent = tab.content;
+
+                tabContents.appendChild(content)
+            })
+
+            container.appendChild(tabButtons);
+            container.appendChild(tabContents);
+
+
+            // activate the first child by default
+            if (tabContents.firstChild) {
+                tabButtons.firstChild.click();
+            }
+        }
+
+
+        const tabs = [
+            { title: "Tab1", content: "Content for Tab 1" },
+            { title: "Tab2", content: "Content for Tab 2" },
+            { title: "Tab3", content: "Content for Tab 3" },
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeTabs(tabs);
+        })
+
+
+    </script>
+
+</body>
+
+</html>

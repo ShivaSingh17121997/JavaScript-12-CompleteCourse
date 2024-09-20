@@ -8,9 +8,37 @@
 </head>
 
 <body>
+    <button id="btn">click</button>
 
 </body>
 <script>
+
+
+    const myPromise = new Promise((res, rej) => {
+        res("promise is resolved")
+        rej("promise is rejected")
+
+    });
+
+    document.querySelector("#btn").addEventListener("click", () => {
+        myPromise.then((res) => {
+            console.log("promise is resolved")
+        }).catch((rej) => { console.log("promise is rejected") })
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
     // const CounterPromise = new Promise((res, rej) => {
     //     let count = 2;
     //     if (count > 0) {
@@ -26,20 +54,20 @@
 
     // console.log(CounterPromise)
 
-    let Otp = "12346"
-    function otpCheck(otp) {
-        let otpPromise = new Promise((res, rej) => {
-            if (otp === "1234") {
-                res("otp matched")
-                d
-            } else {
-                rej("otp did not matched")
-            }
-        })
-        return otpPromise
-    }
-    otpCheck(Otp).then((res) => console.log(res))
-        .catch((rej) => console.log(rej))
+    // let Otp = "12346"
+    // function otpCheck(otp) {
+    //     let otpPromise = new Promise((res, rej) => {
+    //         if (otp === "1234") {
+    //             res("otp matched")
+    //             d
+    //         } else {
+    //             rej("otp did not matched")
+    //         }
+    //     })
+    //     return otpPromise
+    // }
+    // otpCheck(Otp).then((res) => console.log(res))
+    //     .catch((rej) => console.log(rej))
 
 
 

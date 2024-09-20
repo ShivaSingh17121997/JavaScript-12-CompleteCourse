@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            /* overflow: hidden; */
+            border: 1px solid #ccc;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            /* Added transition for smooth sliding */
+        }
+
+        .slide {
+            min-width: 100%;
+            display: none;
+            /* Hide all slides by default */
+        }
+
+        .slide.active {
+            display: block;
+            /* Show active slide */
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+                class="slide active" alt="Image 1">
+            <img src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" class="slide" alt="Image 2">
+            <img src="https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649" class="slide" alt="Image 3">
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+
+            // Loop back to the first slide if we're at the end
+            if (index >= slides.length) {
+                currentSlide = 0;
+            }
+            // Loop to the last slide if we go back from the first
+            else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show the current slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Initialize the slider by showing the first slide
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>
