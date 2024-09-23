@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="inc">Increase</button>
+    <button id="dec">Decrease</button>
+    <h2 id="co"></h2>
+
+
+    <script>
+        const inc = document.querySelector("#inc");
+        const dec = document.querySelector("#dec");
+        const h2 = document.querySelector("#co");
+
+        let count = 0;
+        h2.innerHTML = count
+
+        inc.addEventListener("click", () => {
+            const handletime = setInterval(() => {
+                count++
+                h2.innerHTML = count
+                dec.disabled = false
+
+                if (count == 10) {
+                    clearInterval(handletime)
+                }
+            }, 100);
+        })
+
+
+        dec.addEventListener("click", () => {
+            console.log("Hi")
+            const handletime = setInterval(() => {
+                count--
+                h2.innerHTML = count
+
+                if (count <= 0) {
+                    count = 0;
+                    dec.disabled = true
+                    clearInterval(handletime)
+                }
+
+            }, 100);
+        })
+
+
+    </script>
+
+</body>
+
+</html>

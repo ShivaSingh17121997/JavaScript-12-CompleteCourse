@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab-btn-container {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 5px;
+        }
+
+        .tab-btn {
+            border: 1px solid black;
+            padding: 5px;
+            width: 60px;
+            text-align: center;
+            border-radius: 5px;
+            background-color: rgb(255, 232, 82);
+            border: none;
+        }
+
+        /* .tab-btn:hover {
+            background-color: rgb(248, 237, 169);
+        } */
+
+        .tab-btn-content-container {}
+
+        .tab-button-content {
+            display: none;
+            padding: 5px;
+            background-color: rgb(234, 255, 141);
+            margin: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .active-btn {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="tab-btn-container">
+            <div class="tab-btn">Tab 1</div>
+            <div class="tab-btn">Tab 2</div>
+            <div class="tab-btn">Tab 3</div>
+        </div>
+
+        <div class="tab-btn-content-container">
+            <div class="tab-button-content">
+                <h3>this is content for tab 1 button</h3>
+            </div>
+
+            <div class="tab-button-content">
+                <h3>this is content for tab 2 button and i like it</h3>
+            </div>
+
+            <div class="tab-button-content">
+                <h3>this is content for tab 3 button and i love this code</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tabbtn = document.querySelectorAll(".tab-btn");
+        let tabbtnContent = document.querySelectorAll(".tab-button-content");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            tabbtnContent[0].classList.add("active");
+            tabbtn[0].classList.add("active-btn");
+
+            tabbtn.forEach((item, i) => {
+                item.addEventListener("click", () => {
+                    tabbtnContent.forEach((item) => item.classList.remove("active"))
+                    tabbtn.forEach((item) => item.classList.remove("active-btn"))
+
+                    item.classList.add("active-btn");
+                    tabbtnContent[i].classList.add("active")
+                })
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- tabbtnContent[0].classList.add("active");
+tabbtn[0].classList.add("active-btn");
+
+tabbtn.forEach((item, i) => {
+    item.addEventListener("click", () => {
+        tabbtn.forEach((btn) => btn.classList.remove("active-btn"))
+        tabbtnContent.forEach((content) => content.classList.remove("active"))
+
+        item.classList.add("active-btn");
+        tabbtnContent[i].classList.add("active")
+    })
+}) -->

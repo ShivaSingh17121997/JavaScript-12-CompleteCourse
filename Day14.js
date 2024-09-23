@@ -481,27 +481,27 @@
 
 
 // what are classes in js  // classes are templete use to create objects
-let obj = {};
-// tmplete
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+// let obj = {};
+// // tmplete
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
 
-}
+// }
 
 
-const Person1 = new Person("krishn", 5000);
+// const Person1 = new Person("krishn", 5000);
 
-console.log(Person1);
+// console.log(Person1);
 
-const Persone2 = new Person("shiv", "infinity")
-console.log(Persone2)
+// const Persone2 = new Person("shiv", "infinity")
+// console.log(Persone2)
 
-for (key in Person1) {
-    console.log(key, "==>", Person1[key])
-};
+// for (key in Person1) {
+//     console.log(key, "==>", Person1[key])
+// };
 
 
 
@@ -551,3 +551,5 @@ for (key in Person1) {
 
 
 
+
+console.log(this)

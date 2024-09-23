@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #btnDiv {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .model-Component {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 200px;
+            background-color: rgb(249, 255, 167);
+            border: 1px solid black;
+            padding: 20px;
+            z-index: 100;
+            border-radius: 10px;
+
+        }
+
+        button {
+            background-color: rgb(219, 238, 254);
+            height: 50px;
+            border-radius: 10px;
+            width: 100px
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(178, 227, 255, 0.5);
+            z-index: 50;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="btnDiv">
+        <button id="show-modal">show model</button>
+    </div>
+
+
+
+
+    <div class="model-Component">
+        <h1>model content</h1>
+        <p>Hello this is model component</p>
+        <button id="close-modal">close</button>
+    </div>
+
+    <div id="overlay"></div>
+
+
+
+    <script>
+
+        let btn = document.querySelector("#show-modal");
+        let modalcomponent = document.querySelector(".model-Component");
+        let closebtn = document.querySelector("#close-modal");
+        let overlay = document.querySelector("#overlay");
+
+        btn.addEventListener("click", () => {
+            modalcomponent.style.display = "block"
+            overlay.style.display = "block"
+
+        })
+
+        closebtn.addEventListener("click", () => {
+            modalcomponent.style.display = "none"
+            overlay.style.display = "none"
+        })
+
+
+        overlay.addEventListener("click", () => {
+            modalcomponent.style.display = "none"
+            overlay.style.display = "none"
+        })
+
+    </script>
+</body>
+
+</html>

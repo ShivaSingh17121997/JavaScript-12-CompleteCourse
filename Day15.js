@@ -31,19 +31,19 @@
 // protypal inheritence    // currying // closures ==>
 
 
-let obj = {
-    name: "krishna",
-    age: 21
-};
+// let obj = {
+//     name: "krishna",
+//     age: 21
+// };
 
-let obj2 = {
-    getName: function () {
-        console.log(`hello my name is ${this.name} , &i am ${this.age} year old;`)
-    }
-};
+// let obj2 = {
+//     getName: function () {
+//         console.log(`hello my name is ${this.name} , &i am ${this.age} year old;`)
+//     }
+// };
 
-Object.setPrototypeOf(obj2, obj)
-obj2.getName();
+// Object.setPrototypeOf(obj2, obj)
+// obj2.getName();
 
 // console.log(obj2.name)// undefned
 // console.log(obj.name)
@@ -81,45 +81,88 @@ obj2.getName();
 
 
 
-class Device {
-    constructor(Name, brand) {
-        this.Name = Name
-        this.brand = brand
-    }
-    getDevice() {
-        console.log(`this device is ${this.Name}, and its brand is ${this.brand}`)
-    };
+// class Device {
+//     constructor(Name, brand) {
+//         this.Name = Name
+//         this.brand = brand
+//     }
+//     getDevice() {
+//         console.log(`this device is ${this.Name}, and its brand is ${this.brand}`)
+//     };
 
-    setDevice() {
-        console.log(`this is setDevice ${this.brand}`)
-    }
-};
+//     setDevice() {
+//         console.log(`this is setDevice ${this.brand}`)
+//     }
+// };
 
-console.log(typeof Device);
+// console.log(typeof Device);
 
-// let ab = new Device("babalu", "dabalu")
+// // let ab = new Device("babalu", "dabalu")
 
-class iphone extends Device {
-    getIphone() {
-        console.log(`this is ${this.Name}, its brand is ${this.brand}`)
-    };
-};
+// class iphone extends Device {
+//     getIphone() {
+//         console.log(`this is ${this.Name}, its brand is ${this.brand}`)
+//     };
+// };
 
-class wphone extends iphone {
-    getWhone() {
-        console.log(`this is wphone ${this.brand}`)
-    }
-}
+// class wphone extends iphone {
+//     getWhone() {
+//         console.log(`this is wphone ${this.brand}`)
+//     }
+// }
 
-let iphone1 = new iphone("ram", "shyajm")
-let wphone1 = new wphone("apple", "nike", 987)
-console.log(wphone1)
-wphone1.getDevice()
-wphone1.getIphone();
-wphone1.getWhone();
+// let iphone1 = new iphone("ram", "shyajm")
+// let wphone1 = new wphone("apple", "nike", 987)
+// console.log(wphone1)
+// wphone1.getDevice()
+// wphone1.getIphone();
+// wphone1.getWhone();
 // iphone1.getIphone()
 
 // iphone1.getDevice()
 
 // iphone1.setDevice()
 
+
+// var x = 20;
+
+// function hi(){
+//     console.log(x);
+//     let x = 10
+
+// }
+
+// hi()
+
+
+
+
+// inheritence by clsses
+
+
+
+// shallow copy
+// properties deep copy
+
+
+class Home {
+    constructor(kitchen, door) {
+        this.kitchen = kitchen
+        this.door = door
+    }
+
+    getHome() {
+        console.log(`this home has ${this.kitchen}kithen & ${this.door} doors`)
+    }
+}
+
+
+class childHome extends Home {
+    getChildHome() {
+        console.log(`this childhome has ${this.kitchen} kithen & ${this.door} doors`)
+    }
+}
+
+const childHome1 = new childHome(2, 10);
+// childHome1.getChildHome()
+childHome1.getHome()
