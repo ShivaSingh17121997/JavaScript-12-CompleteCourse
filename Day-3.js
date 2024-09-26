@@ -1,66 +1,89 @@
-// variables   var hello()
+// // variables   var hello()
 
 
-var a = 10;   // global scope
+// var a = 10;   // global scope
 
-var Name = "Radhe shyam "
+// var Name = "Radhe shyam "
 
-console.log(Name)
-
-
-var obj = { name: "ram", age: 21, city: "ayodhya" }
-console.log(obj)
+// console.log(Name)
 
 
-// types of varibales ES = 3 taypes = var , let , const
-
-// const 
-const age = 21
-console.log("age", age)
+// var obj = { name: "ram", age: 21, city: "ayodhya" }
+// console.log(obj)
 
 
-// let 
-let userName = "Ram"
+// // types of varibales ES = 3 taypes = var , let , const
 
-userName = "Ram chandra"
-
-userName = "Raja Ram chandra "
-
-console.log(userName);
+// // const
+// const age = 21
+// console.log("age", age)
 
 
-let city
-city = "surat"
-console.log(city)
+// // let
+// let userName = "Ram"
+
+// userName = "Ram chandra"
+
+// userName = "Raja Ram chandra "
+
+// console.log(userName);
 
 
-// var
-
-var hobby = "guiter"
-
-hobby = "tabala"
-
-console.log(hobby)
+// let city
+// city = "surat"
+// console.log(city)
 
 
-skills = "coding"
-var skills
-console.log(skills);
+// // var
 
-// hoisting  var 
+// var hobby = "guiter"
 
-// hoisting is very important
+// hobby = "tabala"
 
-function hello() {
-    // block scope // local scope
-}
-
-hello() // function calling
-
-//
+// console.log(hobby)
 
 
-// data types
+// skills = "coding"
+// var skills
+// console.log(skills);
 
-// primitive number, boolean (true, false) , string(" ") , symobie(!@#$%^&*()), null, undefined
-// non primitive values array = [], obj={},
+// // hoisting  var
+
+// // hoisting is very important
+
+// function hello() {
+//     // block scope // local scope
+// }
+
+// hello() // function calling
+
+// //
+
+
+// // data types
+
+// // primitive number, boolean (true, false) , string(" ") , symobie(!@#$%^&*()), null, undefined
+// // non primitive values array = [], obj={},
+
+
+
+
+// function add(...c) {
+//     let arr = [...c]
+
+//     return function next(...args) {
+//         if (args.length === 0) {
+//             return arr.reduce((acc, cv) => acc + cv, 0)
+//         } else {
+//             arr.push(...args)
+//             console.log(arr)
+//             return next
+//         }
+//     }
+// }
+
+// let ans = add(2, 3, 4, 5)(8)(7, 4, 6)(6)(7)()
+// console.log(ans)
+
+
+

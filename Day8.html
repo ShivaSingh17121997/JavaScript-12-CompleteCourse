@@ -10,24 +10,39 @@
             background-color: aqua;
             width: 100%;
             height: 100vh;
-            align-content: center  ;
+            align-content: center;
         }
 
         #childDiv {
             width: 200px;
             height: 200px;
             background-color: red;
-            margin: auto; 
+            margin: auto;
         }
     </style>
 </head>
 
 <body>
     <div id="parentDiv">
-        <div id="childDiv">
 
-        </div>
+
     </div>
+
+    <script>
+        let arr = [
+            { name: "rram" },
+            { name: "rram" },
+            { name: "rram" },
+            { name: "rram" },
+        ];
+
+
+        localStorage.setItem("name", JSON.stringify(arr));
+
+
+        let getArr = JSON.parse(localStorage.getItem("name"))
+        console.log(getArr)
+    </script>
 
 </body>
 

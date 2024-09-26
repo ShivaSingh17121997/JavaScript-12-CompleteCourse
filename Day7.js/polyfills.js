@@ -217,6 +217,7 @@
 //     if (!Array.isArray(args)) throw Error("argument should be array")
 
 //     context.fn = this
+
 //     context.fn(...args)
 // }
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Local storage</h1>
+
+
+
+    <script>
+        // let name = "ravan"
+
+        // localStorage.setItem("userName", name)
+
+        // let localStoragedata = localStorage.getItem("userName")
+        // console.log("local storage data is", localStoragedata)
+
+        // localStorage.removeItem("userName")
+        // localStorage.clear()
+
+
+
+
+
+
+
+        // session storage // temprary
+
+        // let name = "ravan"
+
+        // sessionStorage.removeItem("userName")
+        // sessionStorage.setItem("userName", name)
+
+        // let ssData = sessionStorage.getItem("userName")
+        // console.log(ssData)
+        // console.log("session storage data is", ssData)
+
+        // sessionStorage.clear()
+
+
+
+        // storing data in the form of object
+
+
+        let student = [
+            { name: "ram" }, { name: "shyam" }, { name: "laxman" }, { name: "bharat" },
+        ]
+
+        // first change the data inot string
+
+
+        // set data
+        localStorage.setItem("students", JSON.stringify(student))
+
+
+        // get data 
+
+        let data = JSON.parse(localStorage.getItem("students"))
+
+        console.log(data)
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- // local storage ==>browser space provide ~10mb ==> permanently store
+
+// localStorage.setItem("key","ram") -->

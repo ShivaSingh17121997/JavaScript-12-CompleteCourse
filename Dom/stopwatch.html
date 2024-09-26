@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Count Down</h1>
+    <h2 id="showTime">10</h2>
+    <button id="startBtn">Start</button>
+
+    <script>
+        let countDown = 10;
+        let showTime = document.querySelector("#showTime");
+        let startBtn = document.querySelector("#startBtn");
+
+        startBtn.addEventListener("click", () => {
+            // setinteval
+            let timer = setInterval(() => {
+                countDown = countDown - 1;
+                showTime.innerHTML = countDown;
+
+                if (countDown <= 0) {
+                    console.log("time is up")
+                    clearInterval(timer);
+                    showTime.innerHTML = "time is up chalo kam khatm"
+                }
+            }, 300);
+        });
+    </script>
+
+</body>
+
+</html>

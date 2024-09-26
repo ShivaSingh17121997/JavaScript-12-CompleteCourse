@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+
+        <h1 id="count"></h1>
+        <button id="decrement">Decrement</button>
+        <button id="increment">increment</button>
+        <button id="reset">Reset</button>
+
+    </div>
+
+
+    <script>
+        let count = 0;
+
+        let btn = document.querySelector("#increment");
+        let btnDecrement = document.querySelector("#decrement")
+        let resetbtn = document.querySelector("#reset")
+
+        let h1 = document.querySelector("#count")
+        h1.innerHTML = count;
+
+        // increment
+        btn.addEventListener("click", () => {
+            count = count + 1;
+            h1.innerHTML = count;
+            console.log(count);
+        })
+
+        // decrement
+        btnDecrement.addEventListener("click", function () {
+            count = count - 1;
+            h1.innerHTML = count;
+        })
+
+        // reset
+        resetbtn.addEventListener("click", () => {
+            count = 0;
+            h1.innerHTML = count;
+        })
+
+
+
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .accodion-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+
+        <div class="accordion">
+            <h2 class="accodion-heading">Accordion 1</h2>
+            <p class="accodion-content">this is content for Accordion 1</p>
+        </div>
+
+        <div class="accordion">
+            <h2 class="accodion-heading">Accordion 2</h2>
+            <p class="accodion-content">this is content for Accordion 2</p>
+        </div>
+
+        <div class="accordion">
+            <h2 class="accodion-heading">Accordion 3</h2>
+            <p class="accodion-content">this is content for Accordion 3</p>
+        </div>
+
+    </div>
+
+    <script>
+        let accodionHeading = document.querySelectorAll(".accodion-heading");
+        let accordionContent = document.querySelectorAll(".accodion-content"); // []
+
+        // accordionheading = [heading1, heading2, heading 3].foreach()
+        accodionHeading.forEach((item, i) => {
+
+            item.addEventListener("click", () => {
+
+                // mistake was that if condition should be writen first and in else condition i take the accordion content for foreach 
+
+                if (accordionContent[i].style.display === "block") {
+                    accordionContent[i].style.display = "none"
+                } else {
+                    accordionContent.forEach((item) => item.style.display = "none");
+                    accordionContent[i].style.display = "block"
+                }
+            })
+        });
+
+    </script>
+
+</body>
+
+</html>
