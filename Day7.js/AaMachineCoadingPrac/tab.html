@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        .tabGroup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .tabGroup {
+            width: 600px;
+        }
+
+        .TabHeading {
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-radius: 2px;
+            width: 50%;
+        }
+
+        .tabContent {
+            display: none;
+        }
+
+        .contentDiv {
+            border: 1px solid black;
+            padding: 5px 10px;
+            background-color: rgb(194, 255, 255);
+
+        }
+
+        .active {
+            background-color: rgb(104, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <!-- <h1>Tab</h1> -->
+        <div class="tabGroup">
+            <div class="TabHeading">Tab 1</div>
+            <div class="TabHeading">Tab 2</div>
+            <div class="TabHeading">Tab 3</div>
+        </div>
+
+        <div class="contentDiv">
+            <p class="tabContent">Content for tab 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus,
+                ipsa.</p>
+            <p class="tabContent">Content for tab 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, rem.
+            </p>
+            <p class="tabContent">Content for tab 3 lorem10</p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let tabHeading = document.querySelectorAll(".TabHeading");
+            let tabContent = document.querySelectorAll(".tabContent");
+
+            tabContent[0].style.display = "block";
+            tabHeading[0].classList.add("active")
+
+            tabHeading.forEach((item, i) => {
+                item.addEventListener("click", () => {
+                    tabHeading.forEach((item) => item.classList.remove("active"));
+
+                    tabContent.forEach((item) => {
+                        item.style.display = "none"
+                    })
+                    tabHeading[i].classList.add("active")
+                    tabContent[i].style.display = "block"
+                    console.log("2")
+                })
+
+            })
+        })
+
+
+
+    </script>
+</body>
+
+
+</html>
