@@ -44,6 +44,7 @@
         let currentPage = 1;
         const itemsPerPage = 10; // Number of items per page
         const totalPages = 100; // Total pages assuming 1000 items
+
         const content = document.getElementById('content');
         const loading = document.getElementById('loading');
 
@@ -63,8 +64,8 @@
                 console.error('Error fetching data:', error);
             } finally {
                 loading.style.display = 'none'; // Hide loading indicator
-            }
-        }
+            };
+        };
 
         // Load initial content
         loadMoreContent(currentPage);

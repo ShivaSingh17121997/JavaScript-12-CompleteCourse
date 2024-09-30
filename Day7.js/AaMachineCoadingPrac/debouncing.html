@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounced Search Example</title>
+</head>
+
+<body>
+    <h1>Product Search</h1>
+    <input type="text" id="searchInput" placeholder="Search for products..." />
+    <div id="results"></div>
+
+    <script>
+        // Debounce function: delays function execution until after 'delay' milliseconds of inactivity
+        function debounce(func, delay) {
+            let debounceTimer;
+            return function (...args) {
+                clearTimeout(debounceTimer); // Clears the timer
+                debounceTimer = setTimeout(() => func.apply(this, args), delay); // Sets the new timer
+            };
+        }
+
+        // Fetch products from FakeStore API based on search query
+        function fetchProducts(query) {
+            fetch(`https://fakestoreapi.com/products?limit=10`)
+                .then((response) => response.json())
+                .then((products) => {
+                    console.log(products); // Corrected this to log `products`
+
+                    // Fixed the filter function to return the result of the `includes` check
+                    const filteredProducts = products.filter((product) =>
+                        product.title.toLowerCase().includes(query.toLowerCase())
+                    );
+                    displayResults(filteredProducts);
+                })
+                .catch((error) => console.error('Error fetching products:', error));
+        }
+
+        // Function to display products
+        function displayResults(products) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+            if (products.length === 0) {
+                resultsDiv.innerHTML = '<p>No products found.</p>';
+                return;
+            }
+
+            products.forEach((product) => {
+                const productDiv = document.createElement('div');
+                productDiv.innerHTML = `<p><strong>${product.title}</strong> - $${product.price}</p>`;
+                resultsDiv.appendChild(productDiv);
+            });
+        }
+
+        // Add debounce to the search input field
+        document.getElementById('searchInput').addEventListener(
+            'input',
+            debounce(function (event) {
+                const query = event.target.value;
+                if (query.length > 2) {
+                    fetchProducts(query); // Call API when query is longer than 2 characters
+                } else {
+                    document.getElementById('results').innerHTML = ''; // Clear results if query is too short
+                }
+            }, 1000) // Wait 1000ms after the last keypress
+        );
+
+    </script>
+</body>
+
+</html>
