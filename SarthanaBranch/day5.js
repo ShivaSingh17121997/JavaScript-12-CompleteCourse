@@ -66,7 +66,7 @@ if (purchase > 800 && purchase < 1000) {
     console.log("congratulations you won 15% discount plus watch !")
 } else {
     console.log("congratulations you won 18% discount plus prime membership !")
-}
+};
 
 
 

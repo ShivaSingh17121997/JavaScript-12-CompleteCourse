@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>// html version
 <html lang="en">
 
 <head>
@@ -36,7 +36,7 @@
                 let res = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&limit=10`);
                 let data = await res.json();
 
-                const items = data.map((item) => `<div class="item" > <ul> <li> <h3> ${item.title} </h3 > </li></ul> </div>`).join(" ");
+                const items = data.map((item) => `<div class="item" > <ul> <li> <h3> ${item.title}  <h3> ${item.title} </h3 > </li></ul> </div>`).join(" ");
                 content.innerHTML += items
                 console.log(data)
             } catch (error) {
@@ -58,8 +58,19 @@
             }
         }
 
+        // infinite scroll;
+        const onscroll = debounce(() => {
+            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5) {
+                console.log(window.innerHeight, window.scrollY)
+                page++
+                loadMorePage(page)
+                console.log(page)
+            }
+        }, 200)
 
 
+
+        window.addEventListener("scroll", onscroll)
 
     </script>
 

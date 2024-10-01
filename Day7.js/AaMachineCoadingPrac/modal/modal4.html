@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+        }
+
+        #open.active{
+            display: none;
+        }
+
+        
+
+        #modalContainer {
+            display: none;
+            background-color: rgb(174, 247, 247);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            z-index: 10;
+        }
+        #overlay{
+            display: none;
+            position: fixed;
+             top: 0;
+             left: 0;
+             width: 100vw;
+             height: 100vh;
+             background-color: rgb(229, 255, 173);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mainContainer">
+
+        <div>
+            <button id="open">show modal</button>
+        </div>
+        <div id="overlay"></div>
+        <div id="modalContainer">
+            <h1>modal compoenent</h1>
+            <p>This is modal component</p>
+            <button id="close">close modal</button>
+
+        </div>
+    </div>
+
+    <script>
+        let open = document.querySelector("#open");
+        let overlay = document.querySelector("#overlay")
+        document.querySelector("#open").addEventListener("click", () => {
+            modalContainer.style.display = "block";
+            open.classList.add("active")
+            overlay.style.display = "block"
+
+        })
+
+        document.querySelector("#close").addEventListener("click", () => {
+            modalContainer.style.display = "none";
+            open.classList.remove("active")
+            overlay.style.display = "none"
+        })
+
+
+        overlay.addEventListener('click',()=>{
+            modalContainer.style.display = "none";
+            overlay.style.display = "none"
+            open.classList.remove("active")
+        })
+    </script>
+
+
+
+</body>
+
+</html>
