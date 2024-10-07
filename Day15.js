@@ -145,24 +145,46 @@
 // properties deep copy
 
 
-class Home {
-    constructor(kitchen, door) {
-        this.kitchen = kitchen
-        this.door = door
-    }
+// class Home {
+//     constructor(kitchen, door) {
+//         this.kitchen = kitchen
+//         this.door = door
+//     }
 
-    getHome() {
-        console.log(`this home has ${this.kitchen}kithen & ${this.door} doors`)
-    }
+//     getHome() {
+//         console.log(`this home has ${this.kitchen}kithen & ${this.door} doors`)
+//     }
+// }
+
+
+// class childHome extends Home {
+//     getChildHome() {
+//         console.log(`this childhome has ${this.kitchen} kithen & ${this.door} doors`)
+//     }
+// }
+
+// const childHome1 = new childHome(2, 10);
+// // childHome1.getChildHome()
+// childHome1.getHome()
+
+
+
+// let arr = [11, 21, 4, 3, 66, 76, 32];  // unsorted array
+
+// let sortedArr = arr.sort((a, b) => b - a) // ascendug order
+
+// console.log(sortedArr)
+
+
+
+let obj = {
+    name:"ram",
+    age:21
 }
 
 
-class childHome extends Home {
-    getChildHome() {
-        console.log(`this childhome has ${this.kitchen} kithen & ${this.door} doors`)
-    }
-}
+obj.name = "radhe shaym"
+obj.age = 22
 
-const childHome1 = new childHome(2, 10);
-// childHome1.getChildHome()
-childHome1.getHome()
+console.log(obj.name)
+console.log(obj.age)

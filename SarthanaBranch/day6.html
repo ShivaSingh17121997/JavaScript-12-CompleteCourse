@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // prdict random no.
+        // do while loop
+        //  fist input fiels should be visible at least once
+        // let random no. should be generated // js inbuilt method Math.random
+        // if random no === inputno.
+        // you won the game  if won "paly again" else" end tha game"
+        // else try again 
+        // 
+
+        // do {
+        //     let number = prompt("Enter a number between 1-10")
+
+        // } while (condition);
+
+
+
+        // if (number > 10) {
+        //     console.log("please enter a valid no.")
+        // } else if (number < 1) {
+        //     console.log("number less than 1 is not allowed")
+        // } else {
+        //     console.log("your number is correct")
+        // }
+
+
+        // continue and break;
+        for (let i = 0; i < 5; i++) {
+            if (i == 3) {
+                break // chhod k aage badh jao
+            }
+            console.log(i)
+        }
+
+
+        // pattern  statment
+
+        // let pattern = "";
+        // for (let i = 8; i >= 1; i--) {  // 7
+
+        //     for (let j = i; j >= 1; j--) { // 1,2,3,4,5,6,7
+        //         console.log("*")
+        //         pattern = pattern + " " + i
+        //     }
+        //     pattern += "\n";
+        // }
+        // console.log(pattern);
+
+
+        // concatination jodata hai
+
+        console.log("radhe" + "krishna")
+
+        // console.log(1+"1")
+        // console.log(1-"1")
+
+
+        // let rows = 5;
+
+        // pattern variable carries the final pattern in string format
+        // let pattern = "";
+
+        // outer loop runs for `rows` no. of times
+        // for (let n = 1; n <= rows; n++) {
+        //    for (let num = 1; num <= n; num++) {
+        //       pattern += n;
+        //    }
+
+        //    // Add a new line character after contents of each line
+        //    pattern += "\n";
+        // }
+        // console.log(pattern);
+
+
+
+
+        // pattern variable carries the final pattern in string format
+        let pattern = "";
+
+        for (let i = 1; i < 8; i++) {
+            for (let j = 1; j < i; j++) {
+                pattern += j + " "
+            }
+            pattern += "\n";
+        }
+        console.log(pattern)
+
+
+    </script>
+
+</body>
+
+</html>
