@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Navigation links */
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the color on hover */
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Clearfix hack to ensure the nav contains the floated elements */
+        nav:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style for active page link */
+        .active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        #container {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            border-radius: 10px;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+        }
+
+        .card {
+            color: rgb(0, 64, 86);
+            box-shadow: rgba(122, 255, 237, 0.96) 0px 7px 29px 0px;
+            background-color: #00c0ca;
+            padding: 10px;
+            border-radius: 10px;
+            /* border: 1px solid black; */
+            width: 250px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <a href="index.html">Home</a>
+
+            <a href="add-to-cart.html" class="active">Add to Cart</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+
+        <h2>Cart</h2>
+
+        <div>
+            <div id="container"></div>
+        </div>
+
+        <script>
+            let cartData = JSON.parse(localStorage.getItem("cartItems"));
+            console.log(cartData)
+            console.log(typeof cartData)
+            let container = document.querySelector("#container")
+
+            document.addEventListener("DOMContentLoaded", () => {
+                function displayQuotes(data) {
+                    container.innerHTML = "";
+
+                    data.forEach((item) => {
+                        // console.log(item)
+                        let card = document.createElement("div");
+                        card.classList.add("card");
+
+                        let h2 = document.createElement("h3")
+                        h2.innerHTML = item.quote;
+
+                        let author = document.createElement("p");
+                        author.innerHTML = `~${item.author}`;
+
+                        const addToCart = document.createElement("button");
+                        addToCart.innerHTML = "Remove";
+                        addToCart.addEventListener('click', () => {
+                            RemoveFromCart(item.id)
+                        })
+
+                        card.append(h2, author, addToCart)
+                        container.append(card)
+                    });
+                };
+
+                displayQuotes(cartData);
+
+                function RemoveFromCart(id) {
+                    let newDeletedData = cartData.filter((item) => item.id !== id)
+                    localStorage.setItem("cartItems", JSON.stringify(newDeletedData));
+                    displayQuotes(newDeletedData)
+
+                }
+
+
+            })
+
+        </script>
+    </div>
+
+</body>
+
+</html>

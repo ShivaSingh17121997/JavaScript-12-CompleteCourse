@@ -4,49 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>learning js</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <title>Document</title>
 </head>
 
-<!-- //  p h footer nav artical section header aside // seo  // non symantic div span ul ol -->
-<!-- specifity  inlinestype = 1000,  id=100, class= 10, tag,*, 1 -->
-
 <body>
+    <div class="product-list" id="product-list"></div>
 
-    <div>
-        <h1 id="heading1">learning javascript everyday</h1>
-        <h2 class="heading2">learning javascript today</h2>
-        <h3 id="heading3">learning javascript tomorrow</h3>
-        <input id="input" type="text" placeholder="input value">
-        <button id="btn">Add</button>
 
-    </div>
+    <script>
+        // app.js
+
+        // API endpoint
+        const API_URL = 'https://fakestoreapi.com/products';
+
+        // Function to fetch product data
+        async function fetchProducts() {
+            try {
+                const response = await fetch(API_URL);  // Fetch data from the Fake Store API
+                const products = await response.json(); // Convert the response to JSON
+
+                // Call function to render products on the UI
+                displayProducts(products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        // Function to render products in the UI
+        function displayProducts(products) {
+            const productList = document.getElementById('product-list');
+
+            // Clear any existing products
+            productList.innerHTML = '';
+
+            // Loop through each product and create HTML elements
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product');
+
+                productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.title}">
+      <h3>${product.title}</h3>
+      <p>$${product.price}</p>
+      <button onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+
+                // Append product card to the product list
+                productList.appendChild(productCard);
+            });
+        }
+
+        // Dummy function to handle adding a product to the cart
+        function addToCart(productId) {
+            alert(`Product with ID ${productId} added to the cart!`);
+        }
+
+        // Fetch products when the page loads
+        fetchProducts();
+
+    </script>
 </body>
-
-<script>
-
-    let heading3 = document.querySelector("#heading3").style.color = "red";
-
-    console.log(this)
-
-    let btn = document.querySelector("#btn");
-    btn.addEventListener("click", () => {
-        let inputVal = document.querySelector("#input").value;
-
-        console.log("input  value is", inputVal);
-
-
-    })
-
-
-
-
-</script>
 
 </html>

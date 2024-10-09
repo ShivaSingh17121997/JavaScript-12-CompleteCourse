@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <script>
+        // code execute line by line synchronus operaton
+        // asynchronus operation
+        console.log("start");
+        setTimeout(() => {
+            console.log("second")
+        }, 3000);
+
+        setTimeout(() => {
+            console.log("third")
+        }, 2000);
+
+        console.log("middle")
+        console.log("end")
+
+
+        // promises   
+
+        let myPromise = new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                reject("promise is rejected")
+            }, 3000);
+
+            // reject("promise has been rejected")
+
+        })
+            .then((res) => console.log(res))
+            .catch(rej => console.log(rej))
+        console.log(myPromise)
+
+
+        // external source ==  req, ===> responece , reject
+
+
+        // event loop 
+
+        // start
+        // middle
+        // end
+        // third
+        // second
+
+
+        // promises asynchronus operation.. // js single threaded language // miltithreaded 
+
+    </script>
+
+
+
+
+</body>
+
+</html>

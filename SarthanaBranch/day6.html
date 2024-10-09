@@ -87,15 +87,89 @@
 
 
         // pattern variable carries the final pattern in string format
+        // let pattern = "";
+
+        // for (let i = 1; i < 8; i++) {
+        //     for (let j = 1; j < i; j++) {
+        //         pattern += j + " "
+        //     }
+        //     pattern += "\n";
+        // }
+        // console.log(pattern)
+
+
+        // pattern
+
+        // let pattern = ""
+        // for (let i = 1; i < 6; i++) {
+        //     for (let j = 1; j <= i; j++) {
+        //         pattern += j  + " "
+        //     }
+
+        //     for (let j = i; j >= 1; j--) {
+        //         pattern += j  + " "
+        //     }
+        //     pattern = pattern + "\n";
+        // }
+
+        // console.log(pattern)'
+
+        // https://medium.com/@HelloMoto69/patterns-in-javascript-1992ae52a26c pattern link
+
+        let rows = 5;
+
+        // pattern variable carries the final pattern in string format
         let pattern = "";
 
-        for (let i = 1; i < 8; i++) {
-            for (let j = 1; j < i; j++) {
-                pattern += j + " "
-            }
-            pattern += "\n";
+        // outer loop runs for `rows` no. of times
+        // for (let n = 1; n <= rows; n++) {
+        //     // Inner Loop - I -> for the spaces
+        //     for (let space = 1; space <= rows - n; space++) {
+        //         pattern += "  ";
+        //     }
+
+        //     // Inner Loop - II -> for the numbers
+        //     for (let num = 1; num <= 2 * n - 1; num++) {
+        //         pattern += num + " ";
+        //     }
+
+        //     pattern += "\n";
+        // }
+        // console.log(pattern);
+
+
+
+        // funcitons // functions are a block of code that performs a particular task;
+
+        function sayHello() {
+            console.log("hello my name is komal, id nothing at home");
         }
-        console.log(pattern)
+
+        // sayHello() // invoke
+
+        let num1 = 7;
+        let num2 = 9;
+        let num3 = 10;
+
+        function add(a,b,c) { // parameter
+          return  a + b + c
+        }
+
+        let sum =  add(num1,num2,num3) /// argumnet
+
+        console.log(sum)
+
+
+
+        function subs(a,b){
+            return a -b
+
+        }
+
+      let ans =  subs(3,4)
+      console.log(ans)
+
+
 
 
     </script>

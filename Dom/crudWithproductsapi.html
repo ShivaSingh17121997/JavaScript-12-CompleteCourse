@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 80%;
+            margin: auto;
+
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+        }
+
+        .card {
+            /* border: 1px solid black; */
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            text-align: center;
+
+        }
+
+        .card>img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .card>p {
+            font-style: italic;
+            text-align: left;
+        }
+
+        .btn {
+            background-color: rgb(255, 149, 111);
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Get Lost in Quotes</h1>
+
+        <div id="container"></div>
+
+    </div>
+
+    <script>
+        let productsArr = [];
+
+        fetch("https://dummyjson.com/products")
+            .then((res) => res.json()) // promise
+            .then((data) => {
+                productsArr = data.products
+
+                displayQuotes(productsArr)
+                console.log(data.products)
+            })
+            .catch((rej) => console.log(rej))
+
+        let container = document.querySelector("#container");
+
+
+        function displayQuotes(data) {
+            container.innerHTML = "";
+            console.log(data)
+
+            data.forEach((item) => {
+                // console.log(item)
+                let card = document.createElement("div");
+                card.classList.add("card");
+
+
+                let img = document.createElement("img")
+                img.src = item.images[0]
+
+                let h2 = document.createElement("h3")
+                h2.innerHTML = item.title;
+
+                let author = document.createElement("p");
+                author.innerHTML = `$ ${item.price}`;
+
+                let rating = document.createElement("p");
+                rating.innerHTML = `* ${item.rating}`;
+
+                let button = document.createElement("button")
+                button.classList.add("btn");
+                button.innerHTML = "Delete"
+
+                button.addEventListener("click", () => {
+                    DeleteData(item.id);
+                });
+
+                card.append(img, h2, author, rating, button)
+                container.append(card)
+
+            })
+
+
+            //
+            function DeleteData(id) {
+                console.log(id)
+                fetch(`https://dummyjson.com/products/${id}`, {
+                    method: "DELETE"
+                }).then((res) => res.json())
+                    .then((data) => {
+                        console.log(data)
+                        displayQuotes(productsArr = productsArr.filter((item) => item.id !== id))
+                    })
+                    .catch(error => console.log(error));
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>
