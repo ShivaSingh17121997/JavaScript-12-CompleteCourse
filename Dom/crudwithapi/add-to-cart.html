@@ -92,13 +92,14 @@
             let cartData = JSON.parse(localStorage.getItem("cartItems"));
             console.log(cartData)
             console.log(typeof cartData)
-            let container = document.querySelector("#container")
 
             document.addEventListener("DOMContentLoaded", () => {
+                let container = document.querySelector("#container")
+                let quantity = 1;
                 function displayQuotes(data) {
                     container.innerHTML = "";
 
-                    data.forEach((item) => {
+                    data.forEach((item,quantity) => {
                         // console.log(item)
                         let card = document.createElement("div");
                         card.classList.add("card");
@@ -115,18 +116,44 @@
                             RemoveFromCart(item.id)
                         })
 
-                        card.append(h2, author, addToCart)
+                        let inc = document.createElement("button");
+                        inc.innerHTML = " + "
+                        inc.addEventListener("click", () => {
+                            increaseQuantity()
+                        })
+
+                        let dec = document.createElement("button");
+                        dec.innerHTML = " - "
+                        dec.addEventListener("click", () => {
+                            decreaseQuantity()
+                        })
+
+                        let quant = document.createElement("p")
+                        quant.innerHTML = quantity
+
+
+
+                        card.append(h2, author, addToCart, dec, quant ,inc)
                         container.append(card)
                     });
                 };
 
-                displayQuotes(cartData);
+                displayQuotes(cartData, quantity);
 
                 function RemoveFromCart(id) {
-                    let newDeletedData = cartData.filter((item) => item.id !== id)
-                    localStorage.setItem("cartItems", JSON.stringify(newDeletedData));
-                    displayQuotes(newDeletedData)
+                    cartData = cartData.filter((item) => item.id !== id)
+                    localStorage.setItem("cartItems", JSON.stringify(cartData));
+                    displayQuotes(cartData)
+                }
 
+
+                // increment and decrement ;x   
+                function increaseQuantity() {
+                    quantity = quantity + 1;
+                }
+
+                function decreaseQuantity() {
+                    quantity = quantity - 1;
                 }
 
 

@@ -15,6 +15,11 @@
 
         }
 
+        nav {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
         #container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -52,18 +57,28 @@
 </head>
 
 <body>
+
+
     <div>
+        <nav>
+            <a href="./crudWithproductsapi.html">Home</a>
+            <a href="./login.html">Login</a>
+            <a href="./signin.html">Signin</a>
+            <a href="./addToCart.html">Cart</a>
+        </nav>
+
         <h1>Get Lost in Quotes</h1>
 
         <div id="container"></div>
 
     </div>
 
+
     <script>
-        let productsArr = [];
+        let productsArr = []; // data stored at global level and can be acsessed anywhere
 
         fetch("https://dummyjson.com/products")
-            .then((res) => res.json()) // promise
+            .then((res) => res.json()) // promise res rej
             .then((data) => {
                 productsArr = data.products
 
@@ -77,13 +92,12 @@
 
         function displayQuotes(data) {
             container.innerHTML = "";
-            console.log(data)
+            console.log(data);
 
             data.forEach((item) => {
                 // console.log(item)
                 let card = document.createElement("div");
                 card.classList.add("card");
-
 
                 let img = document.createElement("img")
                 img.src = item.images[0]
@@ -105,27 +119,40 @@
                     DeleteData(item.id);
                 });
 
-                card.append(img, h2, author, rating, button)
+
+                let addToCart = document.createElement("button")
+                addToCart.innerHTML = "Add to cart"
+
+                card.append(img, h2, author, rating, button, addToCart)
                 container.append(card)
 
-            })
+            });
 
 
-            //
             function DeleteData(id) {
-                console.log(id)
+                // console.log(id)
                 fetch(`https://dummyjson.com/products/${id}`, {
                     method: "DELETE"
                 }).then((res) => res.json())
                     .then((data) => {
-                        console.log(data)
-                        displayQuotes(productsArr = productsArr.filter((item) => item.id !== id))
+                        console.log(data);
+                        productsArr = productsArr.filter((item) => item.id !== id)
+
+                        displayQuotes(productsArr)
+
                     })
                     .catch(error => console.log(error));
             }
+
+            //
+
         };
 
     </script>
+
+
+
+
 
 </body>
 

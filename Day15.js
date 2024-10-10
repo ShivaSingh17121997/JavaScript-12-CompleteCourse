@@ -177,14 +177,21 @@
 
 
 
-let obj = {
-    name:"ram",
-    age:21
-}
+// let obj = {
+//     name:"ram",
+//     age:21
+// }
 
 
-obj.name = "radhe shaym"
-obj.age = 22
+// obj.name = "radhe shaym"
+// obj.age = 22
 
-console.log(obj.name)
-console.log(obj.age)
+// console.log(obj.name)
+// console.log(obj.age)
+
+
+let arr = [1, 2, 3]
+
+let newArr = arr.filter((item)=> item !=2 )
+
+console.log(newArr)

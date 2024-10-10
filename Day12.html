@@ -34,12 +34,12 @@
 
 
     let playagain; //global level
+    let randomNo = Math.floor(Math.random() * 3) + 1
     do {
         let guess;
-        let randomNo = Math.floor(Math.random() * 3) + 1
 
         do {
-            guess = +prompt("Enter your number from 1-3")
+            guess = +prompt("Enter your number from 1-3");
 
         } while (randomNo !== guess);
 
