@@ -6,11 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
         nav {
-            background-color: rgb(253, 244, 71);
-            padding: 20px;
+            font-weight: bold;
+            font-size: larg;
+            text-decoration: none;
+            background-color: rgb(7, 214, 217);
+            color: white;
             display: flex;
             justify-content: space-evenly;
+            font-family: sans-serif;
+        }
+
+        nav a {
+            padding: 15px;
+            color: black;
+        }
+
+        nav a:hover {
+            padding: 15px;
+            background-color: rgb(71, 206, 145);
+            border-radius: 5px;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            padding: 10px;
+        }
+
+
+
+        #card>img {
+            width: 100px;
         }
     </style>
 </head>
@@ -25,12 +59,47 @@
             <a href="./addToCart.html">Cart</a>
         </nav>
 
-        <div>Cart is empty</div>
-
-
-
+        <div id="container"></div>
 
     </div>
+
+    <script>
+
+        let cartData = JSON.parse(localStorage.getItem("cartData"));
+        console.log(cartData);
+        const container = document.querySelector("#container")
+        function displayCartData() {
+            container.innerHTML = "";
+
+            cartData.forEach((item) => {
+                let card = ` <div id="card">
+                                   <img src=${item.images[0]} alt="">
+                                   <h3>${item.title}</h3>
+                                   <p>${item.price}</p>
+                                   <button id="dec"> - </button>
+                                   <button id="inc"> + </button>
+                                   <div>
+                                       <button onclick="removeFromCartBtn(${item.id})"   id="remove">Remove</button>
+                                   </div>
+                                 </div>
+                                 `
+                container.innerHTML += card;
+            })
+        }
+
+        displayCartData()
+        function removeFromCartBtn(id) {
+            cartData = cartData.filter((item) => item.id != id)
+            localStorage.setItem("cartData", JSON.stringify(cartData))
+            displayCartData(cartData)
+        }
+
+    </script>
+
+
+
+
+
 
 </body>
 

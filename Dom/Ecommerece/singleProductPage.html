@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav {
+            font-weight: bold;
+            font-size: larg;
+            text-decoration: none;
+            background-color: rgb(7, 214, 217);
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            font-family: sans-serif;
+        }
+
+        nav a {
+            padding: 15px;
+            color: black;
+        }
+
+        nav a:hover {
+            padding: 15px;
+            background-color: rgb(71, 206, 145);
+            border-radius: 5px;
+        }
+
+        .card {
+            /* margin-top: 50px; */
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 0;
+            color: rgb(0, 64, 86);
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            background-color: #ffffff;
+            padding: 5px;
+            border-radius: 10px;
+            width: 800px;
+            height: 90vh;
+            text-align: center;
+            word-wrap: break-word;
+            font-size: 15px;
+            line-height: 30px;
+        }
+
+        .card>div>img {
+            /* border: 1px solid black; */
+            width: 490px;
+            height: 490px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .description {
+            margin-top: 10px;
+        }
+
+        .content-div {
+            text-align: left;
+            margin-left: 1%;
+        }
+
+        .toggle-btn {
+            color: blue;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <a href="./crudWithproductsapi.html">Home</a>
+            <a href="./login.html">Login</a>
+            <a href="./signin.html">Signin</a>
+            <a href="./addToCart.html">Cart</a>
+        </nav>
+
+        <div id="container"></div>
+
+    </div>
+
+    <script>
+        let singleProduct = JSON.parse(localStorage.getItem("singleProduct"));
+        console.log(singleProduct);
+
+        const container = document.querySelector("#container");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            container.innerHTML = "";
+
+            // Truncate the description to 10 words initially
+            const fullDescription = singleProduct.description;
+            const words = fullDescription.split(" ");
+            const truncatedDescription = words.length > 10 ? words.slice(0, 10).join(" ") + "..." : fullDescription;
+
+            let card = `
+                <div class="card">
+                    <div>
+                        <img src=${singleProduct.images[0]} alt="">
+                    </div>
+                    <div class="content-div">
+                        <h3>${singleProduct.title}</h3>
+                        <p>Price: ${singleProduct.price}</p>
+                        <p>Rating: ${singleProduct.rating}</p>
+                        <p>Return Policy: ${singleProduct.returnPolicy}</p>
+                        <p>Weight: ${singleProduct.weight}</p>
+                        <p>Brand: ${singleProduct.brand}</p>
+                        <p>Category: ${singleProduct.category}</p>
+                        <div class="description">
+                            <p id="description-text">${truncatedDescription}</p>
+                            <button class="toggle-btn" id="toggle-btn">See more</button>
+                            </div>
+
+                            <button id="checkOutPage">Buy now</button>
+
+                            <button id="AddToCart">Add to Cart</button>
+
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = card;
+
+            const descriptionText = document.getElementById("description-text");
+            const toggleBtn = document.getElementById("toggle-btn");
+            const AddToCart = document.querySelector("#AddToCart");
+
+            let cartData = JSON.parse(localStorage.getItem("cartData")) || []; // if cart is empty then data will be added to empty array, else data will be added ot array coming from local storage
+
+            AddToCart.addEventListener("click", () => {
+                cartData.push(singleProduct);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+            });
+
+
+            // Toggle between truncated and full description
+            let isTruncated = true;
+
+            toggleBtn.addEventListener("click", () => {
+                if (isTruncated) {
+                    descriptionText.textContent = fullDescription; // Show full description
+                    toggleBtn.textContent = "See less"; // Change button text
+                } else {
+                    descriptionText.textContent = truncatedDescription; // Show truncated description
+                    toggleBtn.textContent = "See more"; // Change button text
+                }
+                isTruncated = !isTruncated; // Toggle the flag
+            });
+        });
+    </script>
+</body>
+
+</html>

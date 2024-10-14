@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .card {
+            color: rgb(0, 64, 86);
+            box-shadow: rgba(122, 255, 237, 0.96) 0px 7px 29px 0px;
+            background-color: #00c0ca;
+            font-size: larger;
+            padding: 10px;
+            border-radius: 10px;
+            /* border: 1px solid black; */
+            width: 4-0px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>Single Product page</h3>
+        <div id="container"></div>
+
+
+
+
+    </div>
+
+    <script>
+        let quote = JSON.parse(localStorage.getItem("selectedQuote"));
+        console.log(quote)
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let container = document.querySelector("#container")
+            function displayQuotes(item) {
+                let quote = ` <div  class= "card">
+                    <h3  >${item.quote}</h3>
+                    <p>~${item.author}</p>
+                    </div>`
+
+                container.innerHTML = quote
+
+            }
+
+            displayQuotes(quote)
+
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

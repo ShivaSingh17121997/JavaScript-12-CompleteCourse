@@ -35,7 +35,6 @@ export default function TicTacToe() {
         }
 
         const newSquares = squares.slice();
-        console.log("newSquare", newSquares[index]);
         newSquares[index] = xIsNext ? 'X' : '0';
         setSquares(newSquares);
         setXisNest(!xIsNext);
@@ -49,12 +48,11 @@ export default function TicTacToe() {
 
     // calculate winner
     const winner = calculateWinner(squares);
-    console.log(squares);
     let Status;
     if (winner) {
-        Status = "winner" + winner ;
+        Status = "winner" + winner;
     } else {
-        Status = `Next Player ${xIsNext ? "X" : "O"}` ;
+        Status = `Next Player ${xIsNext ? "X" : "O"}`;
     };
 
     return (

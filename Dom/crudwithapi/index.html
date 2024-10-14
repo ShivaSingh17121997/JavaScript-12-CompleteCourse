@@ -101,6 +101,9 @@
 
                 let h2 = document.createElement("h3")
                 h2.innerHTML = item.quote;
+                h2.addEventListener("click",()=>{
+                    goToSignleQuotePage(item)
+                })
 
                 let author = document.createElement("p");
                 author.innerHTML = `~${item.author}`;
@@ -123,6 +126,17 @@
         }
 
         console.log(cart)
+
+
+        // single product apge
+        function goToSignleQuotePage(item){
+            // store the selected data in the local storage
+            localStorage.setItem("selectedQuote", JSON.stringify(item));
+
+            // redirect to the single quote page
+            window.location.href = "singleProductPage.html"
+
+        }
 
 
     </script>

@@ -87,3 +87,12 @@
 
 
 
+
+
+let obj = {
+    a:3
+}
+
+obj.a = 8
+
+console.log(obj.a)

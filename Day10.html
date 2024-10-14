@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    <!-- 
     <center>
 
         <input id="currPass" type="text" placeholder="Enter your current password"> <br><br>
@@ -16,7 +16,7 @@
         <input id="ConfirmPass" type="text" placeholder="Enter your confirm password"><br><br>
         <button onclick="handleForm()"> Submit </button>
 
-    </center>
+    </center> -->
 
 
 
@@ -29,33 +29,64 @@
 
     // console.log(oldPassword, currentPass, newPassword, confirmPassword)
 
-    function handleForm() {
-        let oldPassword = "ram@123";
-        let currentPass = document.querySelector("#currPass").value;
+    // function handleForm() {
+    //     let oldPassword = "ram@123";
+    //     let currentPass = document.querySelector("#currPass").value;
 
-        let newPassword = document.querySelector("#newPass").value;
+    //     let newPassword = document.querySelector("#newPass").value;
 
-        let confirmPassword = document.querySelector("#ConfirmPass").value
+    //     let confirmPassword = document.querySelector("#ConfirmPass").value
 
-        console.log(currentPass, newPassword, confirmPassword)
-        //  let currentPassword = prompt("Enter your Current password");
-        // let newPassword = prompt("Enter your new Password");
-        // let confirmPassword = prompt("Confirm you password again")
+    //     console.log(currentPass, newPassword, confirmPassword)
+    //  let currentPassword = prompt("Enter your Current password");
+    // let newPassword = prompt("Enter your new Password");
+    // let confirmPassword = prompt("Confirm you password again")
 
-        // console.log(oldPassword, currentPassword, newPassword, confirmPassword)
+    // console.log(oldPassword, currentPassword, newPassword, confirmPassword)
 
-        if (oldPassword !== currentPass) {
-            console.log("your current password is incorrect")
-        } else {
-            if (newPassword !== confirmPassword) {
-                console.log("Password did not match, ")
-            } else {
-                console.log("Your password changed successfully")
-            }
-        }
+    //     if (oldPassword !== currentPass) {
+    //         console.log("your current password is incorrect")
+    //     } else {
+    //         if (newPassword !== confirmPassword) {
+    //             console.log("Password did not match, ")
+    //         } else {
+    //             console.log("Your password changed successfully")
+    //         }
+    //     }
+
+    // }
+
+
+
+
+
+    fetch("https://dog.ceo/api/breeds/list/all")
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            displayData(data)
+        })
+        // resolve
+        .catch(error => console.log(error)); // reject
+
+
+    function displayData(data) {
+
 
     }
 
+    const myPromise = new Promise((res, rej) => {
+        setTimeout(() => {
+            res("the promises is resolved")
+        }, 4000)
+        //  rej("the promise is rejected")
+
+    })
+
+    myPromise.then((res) => console.log(res))
+    // myPromise.catch((rej)=>console.log(rej))
+
+    console.log(myPromise)
 
 
 

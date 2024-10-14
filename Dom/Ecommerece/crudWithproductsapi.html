@@ -6,21 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 80%;
-            margin: auto;
-
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-evenly;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
         #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        nav {
+            font-weight: bold;
+            font-size: larg;
+            text-decoration: none;
+            background-color: rgb(7, 214, 217);
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            font-family: sans-serif;
+        }
+
+        nav a {
+            padding: 15px;
+            color: black;
+        }
+
+        nav a:hover {
+            padding: 15px;
+            background-color: rgb(71, 206, 145);
+            border-radius: 5px;
+        }
+
+        #container {
+            width: 85%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: auto;
@@ -34,7 +56,6 @@
             border-radius: 10px;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             text-align: center;
-
         }
 
         .card>img {
@@ -68,6 +89,7 @@
         </nav>
 
         <h1>Get Lost in Quotes</h1>
+
 
         <div id="container"></div>
 
@@ -103,7 +125,14 @@
                 img.src = item.images[0]
 
                 let h2 = document.createElement("h3")
+
                 h2.innerHTML = item.title;
+                h2.addEventListener("click", () => {
+                    let singlePoduct = localStorage.setItem("singleProduct", JSON.stringify(item))
+                    window.location.href = "singleProductPage.html"
+                })
+
+
 
                 let author = document.createElement("p");
                 author.innerHTML = `$ ${item.price}`;
@@ -111,7 +140,7 @@
                 let rating = document.createElement("p");
                 rating.innerHTML = `* ${item.rating}`;
 
-                let button = document.createElement("button")
+                let button = document.createElement("button");
                 button.classList.add("btn");
                 button.innerHTML = "Delete"
 
@@ -120,10 +149,7 @@
                 });
 
 
-                let addToCart = document.createElement("button")
-                addToCart.innerHTML = "Add to cart"
-
-                card.append(img, h2, author, rating, button, addToCart)
+                card.append(img, h2, author, rating, button)
                 container.append(card)
 
             });
@@ -149,7 +175,6 @@
         };
 
     </script>
-
 
 
 

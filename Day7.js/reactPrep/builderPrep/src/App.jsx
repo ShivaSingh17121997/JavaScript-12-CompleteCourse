@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import TicTacToe from './Projects/TicTacToe'
+import Hoc1 from './Projects/Hoc1'
+import TicTacToe2 from './Projects/TicTacToe2'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <TicTacToe/>
+      {/* <TicTacToe/> */}
+      {/* <TicTacToe2 /> */}
+      <Hoc1/>
+
     </>
 
   )

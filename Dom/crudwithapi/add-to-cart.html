@@ -49,7 +49,6 @@
         }
 
         #container {
-
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: auto;
@@ -65,7 +64,6 @@
             background-color: #00c0ca;
             padding: 10px;
             border-radius: 10px;
-            /* border: 1px solid black; */
             width: 250px;
             height: auto;
         }
@@ -90,21 +88,19 @@
 
         <script>
             let cartData = JSON.parse(localStorage.getItem("cartItems"));
-            console.log(cartData)
-            console.log(typeof cartData)
+            console.log(cartData);
 
             document.addEventListener("DOMContentLoaded", () => {
-                let container = document.querySelector("#container")
-                let quantity = 1;
+                let container = document.querySelector("#container");
+
                 function displayQuotes(data) {
                     container.innerHTML = "";
 
-                    data.forEach((item,quantity) => {
-                        // console.log(item)
+                    data.forEach((item) => {
                         let card = document.createElement("div");
                         card.classList.add("card");
 
-                        let h2 = document.createElement("h3")
+                        let h2 = document.createElement("h3");
                         h2.innerHTML = item.quote;
 
                         let author = document.createElement("p");
@@ -113,52 +109,60 @@
                         const addToCart = document.createElement("button");
                         addToCart.innerHTML = "Remove";
                         addToCart.addEventListener('click', () => {
-                            RemoveFromCart(item.id)
-                        })
+                            removeFromCart(item.id);
+                        });
+
+                        let quantity = item.quantity || 1;
 
                         let inc = document.createElement("button");
-                        inc.innerHTML = " + "
+                        inc.innerHTML = " + ";
                         inc.addEventListener("click", () => {
-                            increaseQuantity()
-                        })
+                            quantitychange(item.id, "increase");
+                        });
 
                         let dec = document.createElement("button");
-                        dec.innerHTML = " - "
+                        dec.innerHTML = " - ";
                         dec.addEventListener("click", () => {
-                            decreaseQuantity()
-                        })
+                            quantitychange(item.id, "decrease");
+                        });
 
-                        let quant = document.createElement("p")
-                        quant.innerHTML = quantity
+                        let quant = document.createElement("p");
+                        quant.innerHTML = `Quantity: ${quantity}`;
+                        quant.id = `quantity-${item.id}`; // Fixed typo in ID
 
-
-
-                        card.append(h2, author, addToCart, dec, quant ,inc)
-                        container.append(card)
+                        card.append(h2, author, addToCart, dec, quant, inc);
+                        container.append(card);
                     });
-                };
+                }
 
-                displayQuotes(cartData, quantity);
+                displayQuotes(cartData);
 
-                function RemoveFromCart(id) {
-                    cartData = cartData.filter((item) => item.id !== id)
+                function removeFromCart(id) {
+                    cartData = cartData.filter((item) => item.id !== id);
                     localStorage.setItem("cartItems", JSON.stringify(cartData));
-                    displayQuotes(cartData)
+                    displayQuotes(cartData);
                 }
 
+                // increment and decrement
+                function quantitychange(id, action) {
+                    cartData = cartData.map((item) => {
+                        if (item.id === id) {
+                            if (action === "increase") {
+                                item.quantity = (item.quantity || 1) + 1; // Update item.quantity
+                            } else if (action === "decrease" && (item.quantity || 1) > 1) {
+                                item.quantity -= 1;
+                            }
 
-                // increment and decrement ;x   
-                function increaseQuantity() {
-                    quantity = quantity + 1;
+                            // Update DOM quantity display
+                            document.querySelector(`#quantity-${item.id}`).innerHTML = `Quantity: ${item.quantity}`;
+                        }
+                        return item;
+                    });
+
+                    // Save updated cart to localStorage
+                    localStorage.setItem("cartItems", JSON.stringify(cartData));
                 }
-
-                function decreaseQuantity() {
-                    quantity = quantity - 1;
-                }
-
-
-            })
-
+            });
         </script>
     </div>
 
