@@ -1,58 +1,53 @@
 import React, { useEffect } from 'react'
 
-export default function Hoc1(wrappedComponent) {
+export default function Hoc1(WrappedComponent) {
 
-    return function withlogger(props) {
-        useEffect(() => {
-            console.log(`Component ${wrappedComponent.name} is mounter`);
+    return (props) => {
 
-            return () => {
-                console.log(`component ${wrappedComponent.name} is mounted`)
-            }
-
-        }, [])
-
-        return <wrappedComponent {...props} />
+        return <div>
+            <p>this is extra info added by Hoc</p>
+            <WrappedComponent {...props} />
+        </div>
     }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function helloComponent({ name }) {
-    return <h1>Hello,{name}!</h1>
+function mycomponent(props) {
+    return <div>Hello,{props.name}</div>
 }
 
-// useHoc
 
-const hoc1 = withlogger(helloComponent)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

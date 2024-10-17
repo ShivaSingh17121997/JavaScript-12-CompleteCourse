@@ -190,8 +190,26 @@
 // console.log(obj.age)
 
 
-let arr = [1, 2, 3]
+// let arr = [1, 2, 3]
 
-let newArr = arr.filter((item)=> item !=2 )
+// let newArr = arr.filter((item)=> item !=2 )
 
-console.log(newArr)
+// console.log(newArr)
+
+
+
+
+
+
+// let page = 1
+// console.log( page)
+
+
+// let page = 10
+
+// function pagination() {
+//     console.log(++page)// 10
+//     console.log(page)// 11
+// }
+
+// pagination()

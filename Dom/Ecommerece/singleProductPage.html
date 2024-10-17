@@ -92,7 +92,7 @@
             <a href="./signin.html">Signin</a>
             <a href="./addToCart.html">Cart</a>
         </nav>
-
+        ,,.
         <div id="container"></div>
 
     </div>
@@ -132,7 +132,6 @@
                             <button id="checkOutPage">Buy now</button>
 
                             <button id="AddToCart">Add to Cart</button>
-
                     </div>
                 </div>
             `;
@@ -151,16 +150,16 @@
             });
 
 
-            // Toggle between truncated and full description
+
             let isTruncated = true;
 
             toggleBtn.addEventListener("click", () => {
                 if (isTruncated) {
-                    descriptionText.textContent = fullDescription; // Show full description
-                    toggleBtn.textContent = "See less"; // Change button text
+                    descriptionText.textContent = fullDescription; // show full desc
+                    toggleBtn.textContent = "See less";
                 } else {
-                    descriptionText.textContent = truncatedDescription; // Show truncated description
-                    toggleBtn.textContent = "See more"; // Change button text
+                    descriptionText.textContent = truncatedDescription; // show truncated description
+                    toggleBtn.textContent = "See more"; // change button text
                 }
                 isTruncated = !isTruncated; // Toggle the flag
             });

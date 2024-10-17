@@ -8,7 +8,7 @@ function App() {
     <>
       {/* <TicTacToe/> */}
       {/* <TicTacToe2 /> */}
-      <Hoc1/>
+      <Hoc1 />
 
     </>
 

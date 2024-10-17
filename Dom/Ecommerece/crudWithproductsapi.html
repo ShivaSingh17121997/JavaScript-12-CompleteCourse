@@ -12,6 +12,12 @@
             box-sizing: border-box;
         }
 
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         #container {
             display: flex;
             justify-content: center;
@@ -74,13 +80,20 @@
             border-radius: 5px;
             border: none;
         }
+
+        #pagination-div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
 
 
-    <div>
+    <div id="">
         <nav>
             <a href="./crudWithproductsapi.html">Home</a>
             <a href="./login.html">Login</a>
@@ -91,23 +104,48 @@
         <h1>Get Lost in Quotes</h1>
 
 
-        <div id="container"></div>
+        <div id="container">
+
+        </div>
+
+        <div id="pagination-div">
+            <button disabled onclick="prevbtnFun()" id="prevbtn">Prev</button>
+            <button onclick="nextbtnFun()" id="nextbtn">Next</button>
+        </div>
+
+        <footer>
+            <!-- create a footer -->
+        </footer>
+
 
     </div>
 
 
     <script>
         let productsArr = []; // data stored at global level and can be acsessed anywhere
+        let page = 1; //2
 
-        fetch("https://dummyjson.com/products")
-            .then((res) => res.json()) // promise res rej
-            .then((data) => {
-                productsArr = data.products
 
-                displayQuotes(productsArr)
-                console.log(data.products)
-            })
-            .catch((rej) => console.log(rej))
+
+        function fetchFunc() {
+            console.log(page)
+            fetch(`https://dummyjson.com/products?limit=8&skip=${(page - 1) * 8}`)
+                .then((res) => res.json()) // promise res rej
+                .then((data) => {
+                    productsArr = data.products
+
+                    displayQuotes(productsArr)
+                    console.log(data.products)
+                })
+                .catch((rej) => console.log(rej))
+        }
+
+        fetchFunc()
+
+
+
+
+
 
         let container = document.querySelector("#container");
 
@@ -125,14 +163,12 @@
                 img.src = item.images[0]
 
                 let h2 = document.createElement("h3")
-
                 h2.innerHTML = item.title;
+
                 h2.addEventListener("click", () => {
                     let singlePoduct = localStorage.setItem("singleProduct", JSON.stringify(item))
-                    window.location.href = "singleProductPage.html"
+                    window.location.href = "singleProductPage.html";
                 })
-
-
 
                 let author = document.createElement("p");
                 author.innerHTML = `$ ${item.price}`;
@@ -148,9 +184,8 @@
                     DeleteData(item.id);
                 });
 
-
-                card.append(img, h2, author, rating, button)
-                container.append(card)
+                card.append(img, h2, author, rating, button);
+                container.append(card);
 
             });
 
@@ -162,17 +197,50 @@
                 }).then((res) => res.json())
                     .then((data) => {
                         console.log(data);
+                        // id 4[{1},{2},{3},{5} ]              id: 5   !== 4   // true
                         productsArr = productsArr.filter((item) => item.id !== id)
 
                         displayQuotes(productsArr)
 
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => console.log(error)); s
             }
-
-            //
-
         };
+
+
+        const prevbtn = document.querySelector("#prevbtn");
+        const nextbtn = document.querySelector("#nextbtn");
+
+        // pagination funstion
+        console.log(page) // 2
+
+        function prevbtnFun() {
+            // page = page - 1
+
+            page -= 1
+            fetchFunc()
+            if (page <= 1) {
+                prevbtn.disabled = true
+
+
+                return;
+            };
+            console.log(page)
+        }
+
+        function nextbtnFun() {
+            // page = page + 1
+            if (page >= 1) {
+                prevbtn.disabled = false;
+            };
+
+            page += 1;
+            fetchFunc()
+            true
+
+            console.log(page)
+        }
+
 
     </script>
 

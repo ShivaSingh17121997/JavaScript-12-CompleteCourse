@@ -12,11 +12,21 @@
 
 </body>
 <script>
-    let fruits = "mango";
+    // async await it is built on the top of promises, it is just syntax extension of fetch , sugar coating
 
-    if (fruits == "mango") {
-        console.log("ahaa mango bade mazedar")
+    async function fetchapi() {
+        try {
+            const res = await fetch(`https://dummyjson.com/products`)
+            const data = await res.json()
+            console.log(data.products)
+        } catch (error) {
+            console.log("something is wrong", error)
+        }
+
     }
+
+    fetchapi()
+
 
 </script>
 
