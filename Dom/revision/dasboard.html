@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+        }
+
+        .card {
+            border: 1px solid black;
+            font-family: sans-serif;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div id="container"></div>
+
+    </div>
+
+
+    <script>
+
+        // fetch api  with async await
+        let produtData = [];
+
+        // async function fetchapi() {
+        //     const denisha = await fetch(`https://dummyjson.com/products`)
+        //     const data = await denisha.json()
+
+        //     produtData = data.products;
+
+        //     console.log(produtData)
+        // }
+        // fetchapi()
+
+
+        fetch(`https://dummyjson.com/products?limit=8`)
+            .then((res) => res.json())
+            .then((data) => {
+                produtData = data.products;
+
+                displayData(data.products);
+
+                console.log(data.products)
+
+            });
+
+
+
+
+        function displayData(produtData) {
+            let container = document.querySelector("#container");
+            console.log(produtData);
+            container.innerHTML = ""
+            produtData.forEach((item) => {
+                console.log("product data", item)
+
+                let card = document.createElement("div");
+                card.classList.add("card")
+
+                let img = document.createElement("img")
+                img.src = item.images[0];
+
+                let title = document.createElement("h3")
+                title.innerText = item.title
+
+                title.addEventListener("click", () => {
+                    localStorage.setItem("singleId", item.id)
+                    window.location.href = "singleProductpage.html"
+                })
+
+
+
+
+                let price = document.createElement("p")
+                price.innerHTML = item.price
+
+                let deleteBtn = document.createElement("button");
+                deleteBtn.innerHTML = "Delete"
+
+                deleteBtn.addEventListener("click", () => {
+                    deleteFunction(item.id)
+                })
+
+
+                card.append(img, title, deleteBtn)
+                container.append(card)
+
+            });
+        }
+
+
+        // delete function 
+        function deleteFunction(id) {
+            fetch(`https://dummyjson.com/products/${id}`, {
+                method: "DELETE"
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data)
+
+
+                    let deletedata = produtData.filter((item) => item.id !== id)
+
+
+                    displayData(deletedata)
+
+                });
+
+
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

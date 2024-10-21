@@ -4,46 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #parentDiv {
-            background-color: aqua;
-            width: 100%;
-            height: 100vh;
-            align-content: center;
-        }
+    <title>Form Validation</title>
 
-        #childDiv {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            margin: auto;
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
         }
     </style>
+
 </head>
 
 <body>
-    <div id="parentDiv">
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
 
+        <small id="nameError" class="error"></small>
+        <br>
 
-    </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <small id="emailError" class="error"></small>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        
+        <small id="passwordError" class="error"></small>
+        <br>
+
+        <button type="submit">Register</button>
+    </form>
 
     <script>
-        let arr = [
-            { name: "rram" },
-            { name: "rram" },
-            { name: "rram" },
-            { name: "rram" },
-        ];
+
+        // Get form and input elements
+        const form = document.getElementById("registrationForm");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+        // Error message elements
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+
+        // Add event listener to form submit
+        form.addEventListener("submit", function (event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Clear previous errors
+            clearErrors();
+
+            // Validate form fields
+            let isValid = validateForm();
+
+            // If form is valid, submit the form or proceed with further logic
+            if (isValid) {
+                alert("Form submitted successfully!");
+                // You can also submit the form programmatically using form.submit()
+                // form.submit();
+            }
+        });
+
+        // Validate the form fields
+        function validateForm() {
+            let valid = true;
+
+            // Validate Name (required, min length 3)
+            if (nameInput.value.trim() === "") {
+                nameError.textContent = "Name is required";
+                valid = false;
+            } else if (nameInput.value.trim().length < 3) {
+                nameError.textContent = "Name must be at least 3 characters long";
+                valid = false;
+            }
+
+            // Validate Email (required, proper format)
+            if (emailInput.value.trim() === "") {
+                emailError.textContent = "Email is required";
+                valid = false;
+            } else if (!validateEmail(emailInput.value.trim())) {
+                emailError.textContent = "Invalid email format";
+                valid = false;
+            }
+
+            // Validate Password (required, min length 6)
+            if (passwordInput.value.trim() === "") {
+                passwordError.textContent = "Password is required";
+                valid = false;
+            } else if (passwordInput.value.trim().length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters long";
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        // Clear error messages
+        function clearErrors() {
+            nameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+        }
+
+        // Email validation function (basic regex pattern)
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return emailPattern.test(email);
+        }
 
 
-        localStorage.setItem("name", JSON.stringify(arr));
-
-
-        let getArr = JSON.parse(localStorage.getItem("name"))
-        console.log(getArr)
     </script>
-
 </body>
 
 </html>

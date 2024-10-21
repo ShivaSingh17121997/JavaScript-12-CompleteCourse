@@ -27,3 +27,11 @@
 // } else if (nationality !== "india") {
 //     console.log("only indians are allowed")
 // }
+
+
+// ternary operation
+
+let a = 9
+
+
+a === 9 ? console.log("it is 9") : console.log("it is not 9")

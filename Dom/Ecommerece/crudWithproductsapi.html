@@ -134,8 +134,8 @@
                 .then((data) => {
                     productsArr = data.products
 
-                    displayQuotes(productsArr)
-                    console.log(data.products)
+                    displayQuotes(productsArr);
+                    console.log(data.products);
                 })
                 .catch((rej) => console.log(rej))
         }
@@ -144,11 +144,7 @@
 
 
 
-
-
-
         let container = document.querySelector("#container");
-
 
         function displayQuotes(data) {
             container.innerHTML = "";
@@ -241,12 +237,7 @@
             console.log(page)
         }
 
-
     </script>
-
-
-
-
 </body>
 
 </html>

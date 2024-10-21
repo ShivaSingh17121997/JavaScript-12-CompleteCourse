@@ -60,37 +60,60 @@
 
 
 
-    fetch("https://dog.ceo/api/breeds/list/all")
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            displayData(data)
-        })
-        // resolve
-        .catch(error => console.log(error)); // reject
+    // fetch("https://dog.ceo/api/breeds/list/all")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         console.log(data)
+    //         displayData(data)
+    //     })
+    //     // resolve
+    //     .catch(error => console.log(error)); // reject
 
 
-    function displayData(data) {
+    // function displayData(data) {
+
+
+    // }
+
+    // const myPromise = new Promise((res, rej) => {
+    //     setTimeout(() => {
+    //         res("the promises is resolved")
+    //     }, 4000)
+    //     //  rej("the promise is rejected")
+
+    // })
+
+    // myPromise.then((res) => console.log(res))
+    // // myPromise.catch((rej)=>console.log(rej))
+
+    // console.log(myPromise)
+
+
+
+
+
+    fetch("https://dummyjson.com/products")
+    // .then((res, i) => res.json())
+    // .then(data => console.log(data))
+
+
+
+
+
+    async function fetchApi() {
+
+        let res = await fetch("https://dummyjson.com/products");
+        const data = await res.json()
+
+        console.log(data.products);
 
 
     }
 
-    const myPromise = new Promise((res, rej) => {
-        setTimeout(() => {
-            res("the promises is resolved")
-        }, 4000)
-        //  rej("the promise is rejected")
-
-    })
-
-    myPromise.then((res) => console.log(res))
-    // myPromise.catch((rej)=>console.log(rej))
-
-    console.log(myPromise)
 
 
 
-
+    fetchApi()
 
 
 

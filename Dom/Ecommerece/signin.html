@@ -6,23 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         nav {
             font-weight: bold;
-            font-size: larg;
+            font-size: large;
+            /* Fixed typo */
             text-decoration: none;
-            background-color:rgb(7, 214, 217);
+            background-color: rgb(7, 214, 217);
             color: white;
             display: flex;
             justify-content: space-evenly;
             font-family: sans-serif;
         }
 
-        nav a{
+        nav a {
             padding: 15px;
             color: black;
         }
@@ -36,7 +44,7 @@
 </head>
 
 <body>
-    <div>
+    <div id="container">
         <nav>
             <a href="./crudWithproductsapi.html">Home</a>
             <a href="./login.html">Login</a>
@@ -44,9 +52,78 @@
             <a href="./addToCart.html">Cart</a>
         </nav>
 
-        <h3>signin page</h3>
+        <h3>Signin Page</h3>
 
+        <form id="form">
+            <input id="userName" type="text" placeholder="Enter Username"><br>
+            <span style="color: red;" id="userErrorMsg"> </span>
+            <br><br>
+
+            <input id="email" type="email" placeholder="Enter Email"><br>
+            <span style="color: red;" id="emailErrorMsg"> </span>
+            <br><br>
+
+            <input id="password" type="password" placeholder="Enter Password"><br>
+            <span style="color: red;" id="passErrorMsg"> </span>
+            <br><br>
+
+            <button>Sign Up</button>
+        </form>
     </div>
+
+    <script>
+        const form = document.querySelector("#form");
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let userName = document.querySelector("#userName").value;
+            let email = document.querySelector("#email").value;
+            let password = document.querySelector("#password").value;
+
+            // Catching the value of error span tags
+            let nameErr = document.querySelector("#userErrorMsg");
+            let emailErr = document.querySelector("#emailErrorMsg");
+            let passErr = document.querySelector("#passErrorMsg");
+
+            // Clear previous error messages before validation
+            clearErrorMsg();
+
+            let valid = true; // Flag method
+
+            if (userName === "") {
+                nameErr.innerHTML = "Username is required";
+                valid = false;
+            } else if (userName.trim().length < 2) {
+                nameErr.innerHTML = "Name must be at least two characters!";
+                valid = false;
+            }
+
+            if (email === "") {
+                emailErr.innerHTML = "Email is required!";
+                valid = false;
+            }
+
+            if (password === "") {
+                passErr.innerHTML = "Password is required!";
+                valid = false;
+            } else if (password.trim().length < 6) {
+                passErr.innerHTML = "Password must be at least 6 characters!";
+                valid = false;
+            }
+
+            if (valid) {
+                console.log(userName, email, password);
+                localStorage.setItem("register", JSON.stringify({ name: userName, email: email, password: password }));
+            }
+
+            function clearErrorMsg() {
+                nameErr.innerHTML = "";
+                emailErr.innerHTML = "";
+                passErr.innerHTML = "";
+            }
+        });
+    </script>
 
 </body>
 
