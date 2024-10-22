@@ -115,6 +115,11 @@
             if (valid) {
                 console.log(userName, email, password);
                 localStorage.setItem("register", JSON.stringify({ name: userName, email: email, password: password }));
+
+                document.querySelector("#userName").value = ""
+                document.querySelector("#email").value = ""
+                document.querySelector("#password").value = ""
+
             }
 
             function clearErrorMsg() {
